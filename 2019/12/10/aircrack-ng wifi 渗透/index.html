@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="aircrack-ng wifi 渗透小知识 现在的路由器基本都是WPA2的加密方式  Aircrack-ng是一个包含了多款工具的套装：    组件名称 描  述    aircrack-ng 主要用于WEP及WPA-PSK密码的恢复，只要airodump-ng收集到足够数量的数据包，aircrack-ng就可以自动检测数据包并判断是否可以破解   airmon-ng 用于改变无线网卡工作模式，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="aircrack-ng">
+<meta property="og:url" content="https:&#x2F;&#x2F;mercer5.github.io&#x2F;2019&#x2F;12&#x2F;10&#x2F;aircrack-ng%20wifi%20%E6%B8%97%E9%80%8F&#x2F;index.html">
+<meta property="og:site_name" content="mercer">
+<meta property="og:description" content="aircrack-ng wifi 渗透小知识 现在的路由器基本都是WPA2的加密方式  Aircrack-ng是一个包含了多款工具的套装：    组件名称 描  述    aircrack-ng 主要用于WEP及WPA-PSK密码的恢复，只要airodump-ng收集到足够数量的数据包，aircrack-ng就可以自动检测数据包并判断是否可以破解   airmon-ng 用于改变无线网卡工作模式，">
+<meta property="article:published_time" content="2019-12-10T11:35:51.000Z">
+<meta property="article:modified_time" content="2019-12-10T11:42:35.489Z">
+<meta property="article:author" content="mercer5">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","Sidebar Display, available value (only for Muse | Mist)":null,"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mercer5.github.io/2019/12/10/aircrack-ng wifi 渗透/"/>
+
+
+
+
+
+  <title>aircrack-ng | mercer</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mercer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mercer5.github.io/2019/12/10/aircrack-ng%20wifi%20%E6%B8%97%E9%80%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mercer5">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mercer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">aircrack-ng</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-10T19:35:51+08:00">
+                2019-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">虚拟机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="aircrack-ng-wifi-渗透"><a href="#aircrack-ng-wifi-渗透" class="headerlink" title="aircrack-ng wifi 渗透"></a>aircrack-ng wifi 渗透</h1><h2 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h2><ol>
+<li><p>现在的路由器基本都是WPA2的加密方式</p>
+</li>
+<li><p>Aircrack-ng是一个包含了多款工具的套装：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>组件名称</strong></th>
+<th><strong>描  述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>aircrack-ng</strong></td>
+<td>主要用于WEP及WPA-PSK密码的恢复，只要airodump-ng收集到足够数量的数据包，aircrack-ng就可以自动检测数据包并判断是否可以破解</td>
+</tr>
+<tr>
+<td align="left"><strong>airmon-ng</strong></td>
+<td>用于改变无线网卡工作模式，以便其他工具的顺利使用</td>
+</tr>
+<tr>
+<td align="left"><strong>airodump-ng</strong></td>
+<td>用于捕获802.11数据报文，以便于aircrack-ng破解</td>
+</tr>
+<tr>
+<td align="left"><strong>aireplay-ng</strong></td>
+<td>在进行WEP及WPA-PSK密码恢复时，可以根据需要创建特殊的无线网络数据报文及流量</td>
+</tr>
+<tr>
+<td align="left"><strong>airserv-ng</strong></td>
+<td>可以将无线网卡连接至某一特定端口，为攻击时灵活调用做准备</td>
+</tr>
+<tr>
+<td align="left"><strong>airolib-ng</strong></td>
+<td>进行WPA Rainbow Table攻击时使用，用于建立特定数据库文件</td>
+</tr>
+<tr>
+<td align="left"><strong>airdecap-ng</strong></td>
+<td>用于解开处于加密状态的数据包</td>
+</tr>
+<tr>
+<td align="left"><strong>tools</strong></td>
+<td>其他用于辅助的工具，如airdriver-ng、packetforge-ng等</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>aireplay-ng当前支持的攻击种类如下：</p>
+<ul>
+<li>Attack 0：解除认证攻击</li>
+<li>Attack 1：伪造认证攻击</li>
+<li>Attack 2：交互式注入攻击</li>
+<li>Attack 3：ARP请求包重放攻击</li>
+<li>Attack 4：chopchop Korek攻击</li>
+<li>Attack 5：碎片交错攻击</li>
+<li>Attack 6：Cafe-latte 攻击</li>
+<li>Attack 7：面向客户的碎片攻击</li>
+<li>Attack 8：WPA迁移模式</li>
+<li>Attack 9：数据包注入测试</li>
+</ul>
+</li>
+</ol>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><h3 id="查看网卡"><a href="#查看网卡" class="headerlink" title="查看网卡"></a>查看网卡</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attribute">ifconfig</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>可以看到里面有个wlan0，如果没有的话就把无线网卡拔了再插一下。直到找到那个wlan0为止。</li>
+<li>一定要保证它现在没有连接到任何wifi。上面那个wlan0里面没有ip地址什么的就说明现在不在连接中。</li>
+</ul>
+<h3 id="杀进程"><a href="#杀进程" class="headerlink" title="杀进程"></a>杀进程</h3><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">airmon-ng<span class="built_in"> check </span>kill</span></pre></td></tr></table></figure>
+
+<h3 id="载入无线网卡驱动，激活无线网卡至monitor即监听模式"><a href="#载入无线网卡驱动，激活无线网卡至monitor即监听模式" class="headerlink" title="载入无线网卡驱动，激活无线网卡至monitor即监听模式"></a>载入无线网卡驱动，激活无线网卡至monitor即监听模式</h3><p>就下面一句就可以了</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#sudo ifconfig wlan0 up</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">airmon-ng <span class="literal">start</span> wlan0</span></pre></td></tr></table></figure>
+
+<ul>
+<li><p>可以看到下面写了monitor mode enable on <strong>wlan0mon</strong></p>
+<p>重点!这句话的意思是，在监听模式下，无线网卡的名称已经变为了wlan0mon。</p>
+</li>
+</ul>
+<h3 id="重启网卡"><a href="#重启网卡" class="headerlink" title="重启网卡"></a>重启网卡</h3><p><em>感觉木啥用,随便搞不搞都行.</em></p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo ifconfig wlan0mon down</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo iwconfig wlan0mon mode monitor</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">sudo ifconfig wlan0mon up</span></pre></td></tr></table></figure>
+
+<h2 id="探索阶段"><a href="#探索阶段" class="headerlink" title="探索阶段"></a>探索阶段</h2><p>查看周围wifi的各种信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">airodump-ng wlan0mon</span></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>bssid</strong>:mac地址</li>
+<li>essid:wifi名称</li>
+<li><strong>ch</strong>:channel信道</li>
+<li>enc:加密方式</li>
+<li>下半部分的表罗列出连接到我连到的wifi内的设备的mac地址</li>
+</ul>
+<h2 id="抓包阶段"><a href="#抓包阶段" class="headerlink" title="抓包阶段"></a>抓包阶段</h2><p>我们已经看到了要攻击的路由器的mac地址和其中的客户端的mac地址，还有工作频道。执行：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">airodump-ng wlan0mon <span class="comment">--bssid 路由器的mac地址 -c 信道 -w wpa</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>–bssid 是路由器的mac地址</li>
+<li>-w 是写入到文件wpa中</li>
+<li>-c 11 是频道11</li>
+</ul>
+<h2 id="攻击阶段"><a href="#攻击阶段" class="headerlink" title="攻击阶段"></a>攻击阶段</h2><p>这里为了获得破解所需的WPA2握手验证的整个完整数据包，我们将会发送一种称之为“Deauth”的数据包来将已经连接至无线路由器的合法无线客户端强制断开，此时，客户端就会自动重新连接无线路由器，我们也就有机会捕获到包含WPA2握手验证的完整数据包了。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">aireplay-ng <span class="number">-0</span> <span class="number">1</span> –a 路由mac地址 -c 目标mac地址 wlan0mon</span></pre></td></tr></table></figure>
+
+<ul>
+<li>-0 采用deauth攻击模式，后面跟上攻击次数</li>
+<li>-a 后跟路由器的mac地址</li>
+<li>-c 后跟客户端的mac地址</li>
+</ul>
+<p>注意看抓包页面右上角是否出现<strong>WPA handshake [路由地址]</strong></p>
+<p>这步很重要,要反复直到刷出</p>
+<h2 id="破解阶段"><a href="#破解阶段" class="headerlink" title="破解阶段"></a>破解阶段</h2><p><strong>用kali自带字典爆破</strong></p>
+<ol>
+<li>看看</li>
+</ol>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attribute">ls</span></span></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用Kali Linux中默认存在的字典，目录为/usr/share/wordlists/rockyou.txt.zip，其中需要使用命令来解压：</li>
+</ol>
+<p>这步只需要做一次，下次就不用做了，因为已经解压好了</p>
+<p>如果出现错误，按路径找到文件手动解压</p>
+<p><del>这操蛋的人生</del></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">gunzip <span class="regexp">/usr/</span>share<span class="regexp">/wordlists/</span>rockyou.txt.zip</span></pre></td></tr></table></figure>
+
+<p>这里顺便记录一下Kali中几个常用的字典文件的位置：</p>
+<p>/usr/share/john/password.lst</p>
+<p>/usr/share/wfuzz/wordlist</p>
+<p>/usr/share/ wordlists</p>
+<ol start="3">
+<li>破解</li>
+</ol>
+<p>至于这里为什么是wpa-04，因为我<del>傻傻的</del>做了四次抓包。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">aircrack-ng -w <span class="regexp">/usr/</span>share<span class="regexp">/wordlists/</span>rockyou.txt wpa-<span class="number">04</span>.cap</span></pre></td></tr></table></figure>
+
+<p><strong>常规</strong></p>
+<p>使用aircrack-ng进行破解</p>
+<ol>
+<li>先看看我们抓到的握手包是什么名字</li>
+</ol>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attribute">ls</span></span></pre></td></tr></table></figure>
+
+<p>可以看到一个叫做longas-01.ivs的，这个就是我们要破解的文件。<br>这时候我们需要准备一个字典文件用来破解这个longas-01.ivs。</p>
+<ol start="2">
+<li>可以使用crunch这个软件生成字典。</li>
+<li>破解</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">aircrack-ng</span> <span class="selector-tag">-w</span> <span class="selector-tag">dict1</span><span class="selector-class">.txt</span> <span class="selector-tag">longas-01</span><span class="selector-class">.ivs</span></span></pre></td></tr></table></figure>
+
+<p>此时的破解速度跟使用的机器性能和字典大小有关。为了节省时间可以把密码直接加入到字典中了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/10/crunch%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" rel="next" title="crunch 使用指南">
+                <i class="fa fa-chevron-left"></i> crunch 使用指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/10/html%E5%9F%BA%E6%93%8D/" rel="prev" title="html基操">
+                html基操 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">mercer5</p>
+              <p class="site-description motion-element" itemprop="description">welcome to my blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mercer5" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:602501833@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#aircrack-ng-wifi-渗透"><span class="nav-number">1.</span> <span class="nav-text">aircrack-ng wifi 渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小知识"><span class="nav-number">1.1.</span> <span class="nav-text">小知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备阶段"><span class="nav-number">1.2.</span> <span class="nav-text">准备阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网卡"><span class="nav-number">1.2.1.</span> <span class="nav-text">查看网卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杀进程"><span class="nav-number">1.2.2.</span> <span class="nav-text">杀进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#载入无线网卡驱动，激活无线网卡至monitor即监听模式"><span class="nav-number">1.2.3.</span> <span class="nav-text">载入无线网卡驱动，激活无线网卡至monitor即监听模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启网卡"><span class="nav-number">1.2.4.</span> <span class="nav-text">重启网卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索阶段"><span class="nav-number">1.3.</span> <span class="nav-text">探索阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抓包阶段"><span class="nav-number">1.4.</span> <span class="nav-text">抓包阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#攻击阶段"><span class="nav-number">1.5.</span> <span class="nav-text">攻击阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#破解阶段"><span class="nav-number">1.6.</span> <span class="nav-text">破解阶段</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mercer5</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
