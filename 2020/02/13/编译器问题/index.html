@@ -106,7 +106,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;mercer5.github.io&#x2F;2020&#x2F;02&#x2F;13&#x2F;%E7%BC%96%E8%AF%91%E5%99%A8%E9%97%AE%E9%A2%98&#x2F;007UR4Zcly1ga3ah7psw4j30kb0d8god.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;mercer5.github.io&#x2F;2020&#x2F;02&#x2F;13&#x2F;%E7%BC%96%E8%AF%91%E5%99%A8%E9%97%AE%E9%A2%98&#x2F;007UR4Zcly1ga3ahg25unj30k20b6tao.jpg">
 <meta property="article:published_time" content="2020-02-13T12:40:49.000Z">
-<meta property="article:modified_time" content="2020-02-13T12:46:23.495Z">
+<meta property="article:modified_time" content="2020-02-13T13:03:48.630Z">
 <meta property="article:author" content="mercer">
 <meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
@@ -310,7 +310,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-02-13T20:46:23+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-02-13T21:03:48+08:00">
                 2020-02-13
               </time>
             
@@ -436,18 +436,18 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello world"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    getchar();<span class="comment">//getche();也可</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <h3 id="c99标准设定（-std）"><a href="#c99标准设定（-std）" class="headerlink" title="c99标准设定（-std）"></a>c99标准设定（-std）</h3><p>依次到【<strong>工具</strong>】-【<strong>编译选项</strong>】-【<strong>代码生成 / 优化</strong>】-【<strong>代码生成</strong>】。在【<strong>语言标准</strong>】中选择 “<strong>ISO C99</strong>” ，此后在编译的时候就可以使用 C99 或 C++ 11 标准了。</p>
-<img src="007UR4Zcly1ga3agyp0bnj30k70mgtbw.jpg" alt="4.png" style="zoom: 67%;" align="left"/>
+<img src="007UR4Zcly1ga3agyp0bnj30k70mgtbw.jpg" alt="4.png" style="zoom: 67%;" />
 
 <h3 id="显示所有警告（-wall）"><a href="#显示所有警告（-wall）" class="headerlink" title="显示所有警告（-wall）"></a>显示所有警告（-wall）</h3><p>有个笑话：路尽头悬崖边上竖了块牌子写着 “Warn­ing”，结果程序员全部掉了下去。</p>
 <p>Warn­ing 与 Er­ror 不同，程序遇到 Er­ror 就不能正常运行了（甚至都不能通过编译），而 Warn­ing 是说明你的程序有不严谨的地方。新手程序员们应该认真对待 Warn­ing，从而提升代码质量。</p>
 <p>在 Dev C++ 中开启显示所有警告的方法如下：【<strong>工具</strong>】-【<strong>编译选项</strong>】-【<strong>代码生成 / 优化</strong>】-【<strong>代码生成</strong>】，在【<strong>代码警告</strong>】中将 “<strong>显示最多警告信息 (-Wall)</strong>” 设置为 Yes 即可。</p>
 <p>上述设置其实是在编译时加入了 -Wall 参数。Wall 不是墙的意思，而是 Warn­ing all，即显示所有警告。开启了 Wall 之后，在某种意义上你应该像对待 Er­ror 那样对待 Warn­ing。</p>
-<img src="007UR4Zcly1ga3ah7psw4j30kb0d8god.jpg" alt="5.png" style="zoom: 67%;" align="left"/>
+<img src="007UR4Zcly1ga3ah7psw4j30kb0d8god.jpg" alt="5.png" style="zoom: 67%;" />
 
 <h3 id="产生调试信息-g3"><a href="#产生调试信息-g3" class="headerlink" title="产生调试信息(-g3)"></a>产生调试信息(-g3)</h3><p>有些版本的 Dev C++ 在刚刚安装完成后默认情况下是不能进行调试的，一旦点击调试按钮，会提示 “没有调试信息”，随后程序崩溃或闪退。</p>
 <p>这是因为在编译源代码的时候没有加入调试信息。解决方法如下：【<strong>工具</strong>】-【<strong>编译选项</strong>】-【<strong>代码生成 / 优化</strong>】-【<strong>代码生成</strong>】，在【<strong>连接器</strong>】中将 “<strong>产生调试信息</strong>” 设置为 Yes。</p>
 <p>只有产生了调试信息才能对程序进行断点调试。<strong>(f5)</strong></p>
-<img src="007UR4Zcly1ga3ahg25unj30k20b6tao.jpg" alt="6.png" style="zoom:67%;" align="left"/>
+<img src="007UR4Zcly1ga3ahg25unj30k20b6tao.jpg" alt="6.png" style="zoom:67%;" />
       
     </div>
     
