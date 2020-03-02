@@ -36,9 +36,9 @@
       <category term="vscode" scheme="https://mercer5.github.io/categories/vscode/"/>
     
     
-      <category term="c" scheme="https://mercer5.github.io/tags/c/"/>
-    
       <category term="vscode" scheme="https://mercer5.github.io/tags/vscode/"/>
+    
+      <category term="c" scheme="https://mercer5.github.io/tags/c/"/>
     
   </entry>
   
@@ -195,7 +195,7 @@
     <link href="https://mercer5.github.io/2019/12/14/xdoj/"/>
     <id>https://mercer5.github.io/2019/12/14/xdoj/</id>
     <published>2019-12-14T02:48:29.000Z</published>
-    <updated>2020-02-13T11:57:54.220Z</updated>
+    <updated>2020-03-02T06:01:40.932Z</updated>
     
     <summary type="html">
     
@@ -360,11 +360,11 @@
       <category term="密码学" scheme="https://mercer5.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
     
+      <category term="安全" scheme="https://mercer5.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
       <category term="密码学" scheme="https://mercer5.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="算法" scheme="https://mercer5.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="安全" scheme="https://mercer5.github.io/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
