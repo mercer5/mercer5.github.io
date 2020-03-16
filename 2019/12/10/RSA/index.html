@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="密码学,算法,安全," />
+  <meta name="keywords" content="安全,密码学,算法," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="RSA算法算法 选择两个质数q,p eg:61,53  n(密钥长度)&#x3D;q*peg:3233  计算n的欧拉函数φ(n) φ(n) &#x3D; (p-1)(q-1) eg:φ(3233)&#x3D;60×52&#x3D;3120  随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质 eg:在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）  计算e对于φ(n)的模反元素d">
+<meta name="description" content="RSA算法算法 选择两个质数q,p eg:61,53  n(模)&#x3D;q*p eg:3233  计算n的欧拉函数φ(n) φ(n) &#x3D; (p-1)(q-1) eg:φ(3233)&#x3D;60×52&#x3D;3120  随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质 eg:在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）  计算e对于φ(n)的模反元素d 所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA算法">
 <meta property="og:url" content="https:&#x2F;&#x2F;mercer5.github.io&#x2F;2019&#x2F;12&#x2F;10&#x2F;RSA&#x2F;index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="RSA算法算法 选择两个质数q,p eg:61,53  n(密钥长度)&#x3D;q*peg:3233  计算n的欧拉函数φ(n) φ(n) &#x3D; (p-1)(q-1) eg:φ(3233)&#x3D;60×52&#x3D;3120  随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质 eg:在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）  计算e对于φ(n)的模反元素d">
+<meta property="og:description" content="RSA算法算法 选择两个质数q,p eg:61,53  n(模)&#x3D;q*p eg:3233  计算n的欧拉函数φ(n) φ(n) &#x3D; (p-1)(q-1) eg:φ(3233)&#x3D;60×52&#x3D;3120  随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质 eg:在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）  计算e对于φ(n)的模反元素d 所">
 <meta property="article:published_time" content="2019-12-10T05:06:51.000Z">
-<meta property="article:modified_time" content="2020-02-13T11:57:56.464Z">
+<meta property="article:modified_time" content="2020-03-16T03:41:36.536Z">
 <meta property="article:author" content="mercer">
+<meta property="article:tag" content="安全">
 <meta property="article:tag" content="密码学">
 <meta property="article:tag" content="算法">
-<meta property="article:tag" content="安全">
 <meta name="twitter:card" content="summary">
 
 
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-02-13T19:57:56+08:00">
-                2020-02-13
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-16T11:41:36+08:00">
+                2020-03-16
               </time>
             
           </span>
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  476
+                  474
                 </span>
               
 
@@ -402,7 +402,8 @@
 <li><p>选择两个质数q,p</p>
 <p>eg:61,53</p>
 </li>
-<li><p>n(密钥长度)=<code>q*p</code><br>eg:3233</p>
+<li><p><code>n(模)=q*p</code></p>
+<p>eg:3233</p>
 </li>
 <li><p>计算n的欧拉函数φ(n)</p>
 <p>φ(n) = (p-1)(q-1)</p>
@@ -412,8 +413,8 @@
 <p>eg:在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）</p>
 </li>
 <li><p>计算e对于φ(n)的模反元素d</p>
-<p>所谓”模反元素”就是指有一个整数d，可以使得ed被φ(n)除的余数为1</p>
-<p>ed ≡ 1 (mod φ(n))  等价于  ed - 1 = kφ(n)</p>
+<p>所谓”模反元素”就是指有一个整数d，可以使得<code>e*d</code>被φ(n)除的余数为1</p>
+<p><code>e*d mod φ(n) ≡ 1</code> 等价于<code>e*d - 1 = kφ(n)</code></p>
 <p>eg:17x + 3120y = 1  d=2753</p>
 </li>
 <li><p>将n和e封装成公钥，n和d封装成私钥</p>
@@ -424,12 +425,12 @@
 <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>用公钥 (n,e) 对m进行加密。</p>
 <p>这里需要注意，m必须是整数（字符串可以取ascii值或unicode值），且m必须小于n。  </p>
 <p>所谓”加密”，就是算出下式的c：</p>
-<p>me ≡ c (mod n)</p>
-<p>eg: 6517 ≡ 2790 (mod 3233)  c=2790</p>
+<p><code>m^e mod n ≡ c</code></p>
+<p>eg: 65^17 mod 3233≡ 2790     c=2790</p>
 <h2 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h2><p>可以证明，下面的等式一定成立：</p>
-<p>cd ≡ m (mod n)</p>
-<p>也就是说，c的d次方除以n的余数为m。现在，c等于2790，私钥是(3233, 2753)，那么，爱丽丝算出</p>
-<p>eg:27902753 ≡ 65 (mod 3233)</p>
+<p><code>c^d mod n ≡ m</code></p>
+<p>也就是说，c的d次方除以n的余数为m。现在，c等于2790，私钥是(3233, 2753)</p>
+<p>eg:2790^2753 mod 3233≡ 65 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#知道p,q,e后算d</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding = utf-8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeD</span><span class="params">(fn, e)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    (x, y, r) = extendedGCD(fn, e)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">#y maybe &lt; 0, so convert it</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> y &lt; <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> fn + y</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> y</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extendedGCD</span><span class="params">(a, b)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">#a*xi + b*yi = ri</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> (<span class="number">1</span>, <span class="number">0</span>, a)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">#a*x1 + b*y1 = a</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    x1 = <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    y1 = <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">#a*x2 + b*y2 = b</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    x2 = <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    y2 = <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">while</span> b != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        q = a / b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">#ri = r(i-2) % r(i-1)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        r = a % b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">        a = b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">        b = r</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">#xi = x(i-2) - q*x(i-1)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        x = x1 - q*x2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">        x1 = x2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        x2 = x</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">#yi = y(i-2) - q*y(i-1)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        y = y1 - q*y2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        y1 = y2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">        y2 = y</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span>(x1, y1, a)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">p = </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">q = </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">e = </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">n = p * q</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">fn = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">d = computeD(fn, e)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">print(d)</span></pre></td></tr></table></figure>
 
 
@@ -496,11 +497,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+          
             <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag"># 密码学</a>
           
             <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
-          
-            <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
           
         </div>
       
