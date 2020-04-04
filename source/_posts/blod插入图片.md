@@ -1,6 +1,7 @@
 ---
 title: blod插入图片
 date: 2020-04-04 15:16:53
+categories: blog
 tags: blog
 ---
 

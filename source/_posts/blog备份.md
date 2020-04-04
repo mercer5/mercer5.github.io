@@ -1,6 +1,7 @@
 ---
 title: blog备份
 date: 2020-04-04 15:59:06
+categories: blog
 tags: blog
 ---
 
