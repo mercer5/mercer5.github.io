@@ -1,12 +1,9 @@
 ---
 title: next主题配置
-date: 2020-2-10 17:14:51
+date: 2020-04-08 13:54:40
 categories: blog
-tags: 
-- blog
-
+tags: blog
 ---
-
 # next主题配置
 
 ## Scheme
@@ -122,6 +119,8 @@ language: zh-Hans
 
 ## 侧栏
 
+### 主体
+
 默认情况下，侧栏仅在文章页面（拥有目录列表）时才显示，并放置于右侧位置。 可以通过修改 **主题配置文件** 中的 `sidebar` 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。
 
 1. 设置侧栏的位置，修改 `sidebar.position` 的值，支持的选项有：
@@ -153,7 +152,18 @@ language: zh-Hans
    
    ```
 
-   
+
+### 社交链接
+
+打开 `themes/next/_config.yml` 文件,搜索关键字 `social` ,然后添加社交站点名称与地址即可。
+
+
+
+### 社交图标
+
+打开 `themes/next/_config.yml` 文件,搜索关键字 `social_icons` ，添加社交站点名称（注意大小写）图标，[Font Awesome](http://fontawesome.dashgame.com/)图标地。
+
+
 
 ## 头像
 
@@ -163,6 +173,8 @@ language: zh-Hans
 | :--------------- | :----------------------------------------------------------- |
 | 完整的互联网 URI | `http://example.com/avatar.png`                              |
 | 站点内的地址     | 将头像放置主题目录下的 `source/uploads/` （新建 uploads 目录若不存在） 配置为：`avatar: /uploads/avatar.png`或者 放置在 `source/images/` 目录下 配置为：`avatar: /images/avatar.png` |
+
+
 
 ## 添加分类和标签
 
@@ -219,7 +231,7 @@ categories: 虚拟机
 
 ### 标签
 
-#### 2生成“标签”页并添加tpye属性
+#### 生成“标签”页并添加tpye属性
 
 打开命令行，进入博客所在文件夹。执行命令
 
@@ -254,18 +266,17 @@ type: "tags"
 
 保存并关闭文件。
 
-#### 2.2 给文章添加“tags”属性
+#### 给文章添加“tags”属性
 
-打开需要添加标签的文章，为其添加tags属性。下方的`tags:`下方的`- jQuery` `- 表格`
-`- 表单验证`就是这篇文章的标签了
+打开需要添加标签的文章，为其添加tags属性。
 
 ```
 ---
 title: aircrack-ng
 date: 2019-12-10 19:35:51
 categories: 虚拟机
-tags: 
-- 安全
+tags:   //标签
+- 安全   //在这里!!
 ---
 ```
 
@@ -281,7 +292,6 @@ tags:
 auto_excerpt:
   enable: true
   length: 100
-
 ```
 
 `enable: true`:表示不完全显示
@@ -298,13 +308,12 @@ auto_excerpt:
 
 ```
 # Blog rolls
-links_icon: link
-links_title: 友情链接
-links_layout: block
+links_title: 友情链接 #标题
+links_layout: block #布局，一行一个连接
 #links_layout: inline
-links:
-  #Title: http://example.com/
-
+links: #连接
+  baidu: http://example.com/
+  google: http://example.com/
 ```
 
 
@@ -316,7 +325,6 @@ links:
 ```bash
   # Scroll percent label in b2t button
   scrollpercent: true
-
 ```
 
 如果想把 `top`按钮放在侧边栏,打开 `themes/next/_config.yml` ,搜索关键字 `b2t` ,把 `false` 改为 `true`。
@@ -327,7 +335,6 @@ links:
 
   # Scroll percent label in b2t button
   scrollpercent: true
-
 ```
 
 
@@ -338,7 +345,6 @@ links:
 
 ```ruby
 $ npm i --save hexo-wordcount
-
 ```
 
 打开 `themes/next/_config.yml` ，搜索关键字 `post_wordcount`：
@@ -355,7 +361,6 @@ post_wordcount:
   #总字数,显示在页面底部
   totalcount: true
   separated_meta: true
-
 ```
 
 
@@ -388,7 +393,6 @@ pace: true
 # For example
 # pace_theme: pace-theme-center-simple
 pace_theme: pace-theme-center-simple
-
 ```
 
 
@@ -411,7 +415,6 @@ canvas_lines: false
 
 # canvas_sphere
 canvas_sphere: false
-
 ```
 
 
@@ -429,7 +432,6 @@ reward:
   comment: 您的支持是对我最大的鼓励
   wechatpay: /images/wechatpay.jpg  #图片链接或图片相对路径,当然也可以是绝对路径
   alipay: /images/alipay.jpg      #同上
-
 ```
 
 
@@ -443,5 +445,37 @@ post_copyright:
   enable: true  //默认为false
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+```
+
+
+
+## 分页问题
+
+网页往下翻的时候发现一个奇奇怪怪的东西
+
+![Snipaste_2020-04-08_13-41-26](Snipaste_2020-04-08_13-41-26.png)
+
+这能忍???
+
+找到`themes\next\layout\_partials\pagination.swig`
+
+修改代码为
 
 ```
+{% if page.prev or page.next %}
+  <nav class="pagination">
+    {{
+      paginator({
+        prev_text: '<',
+        next_text: '>',
+        mid_size: 1
+      })
+    }}
+  </nav>
+{% endif %}
+```
+
+然后就正常了
+
+![Snipaste_2020-04-08_13-45-49](Snipaste_2020-04-08_13-45-49.png)
+
