@@ -2,7 +2,9 @@
 title: 从零开始ubuntu
 date: 2020-04-04 15:21:02
 categories: 虚拟机
-tags: 虚拟机
+tags: 
+- 虚拟机
+- linux
 ---
 # 从零开始ubuntu 18.04
 
