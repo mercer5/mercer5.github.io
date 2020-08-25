@@ -19,6 +19,56 @@ tags:
 
 
 
+## 虚拟环境相关(virtual environment)
+
+1. 查看虚拟环境
+
+   ```
+   conda env list
+   ```
+
+2. 创建虚拟环境
+
+   ```
+   conda create -n new_env
+   ```
+
+   创建对应python版本的虚拟环境
+
+   ```
+   conda create -n new_env python=3.5
+   ```
+
+3. 激活环境
+
+   ```
+   activate new_env
+   ```
+
+4. 移除环境
+
+   ```
+   conda remove -n new_env --all
+   ```
+
+5. 分享环境
+
+   如果你想把你当前的环境配置与别人分享，这样ta可以快速建立一个与你一模一样的环境（同一个版本的python及各种包）来共同开发/进行新的实验。一个分享环境的快速方法就是给ta一个你的环境的.yml文件。
+
+   输入下述代码,会在当前工作目录下生成一个environment.yml文件
+
+   ```
+   conda env export > environment.yml
+   ```
+
+   小伙伴拿到environment.yml文件后，将该文件放在工作目录下，可以通过以下命令从该文件创建环境
+
+   ```
+   conda env create -f environment.yml
+   ```
+
+   
+
 ## 前置措施
 
 为了避免在下载过程中,因网速太慢~~(尤其是那该死的校园网)~~,中断连接导致重下,还是换个源比较好
@@ -73,6 +123,16 @@ tags:
    ```
 
    如果出现timeout之类的错误,见下 **问题解决->timeout ** 部分
+
+   上述命令下载的是最新版本
+
+   如果要下载指定版本的tensorflow,用以下语句
+
+   ~~我没尝试过~~
+
+   ```
+   pip3 install tensorflow==1.2.1
+   ```
 
 4. 安装 keras 模块
 
