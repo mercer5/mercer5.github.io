@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mercer5.github.io/"/>
-  <updated>2021-10-31T01:27:36.847Z</updated>
+  <updated>2021-10-31T01:51:13.023Z</updated>
   <id>https://mercer5.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu跳过登录</title>
+    <link href="https://mercer5.github.io/2021/10/31/ubuntu%E8%B7%B3%E8%BF%87%E7%99%BB%E5%BD%95/"/>
+    <id>https://mercer5.github.io/2021/10/31/ubuntu%E8%B7%B3%E8%BF%87%E7%99%BB%E5%BD%95/</id>
+    <published>2021-10-31T01:50:34.000Z</published>
+    <updated>2021-10-31T01:51:13.023Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu跳过登录"><a href="#ubuntu跳过登录" class="headerlink" title="ubuntu跳过登录"></a>ubuntu跳过登录</h1><h2 id="常规方法"><a href="#常规方法" class="headerlink" title="常规方法"></a>常规方法</h2><blockquote><p>以chagnan2019的检材4中的虚拟机为例</p></blockquote><ol><li>开机长按<code>esc</code>,进入<code>advanced options for ubuntu</code></li></ol><p><img src="image-20210717135201696.png" alt="image-20210717135201696"></p><ol><li>选中<code>recovery mode</code>,按<code>e</code>进入命令行模式</li></ol><p><img src="image-20210717135254135.png" alt="image-20210717135254135"></p><ol><li>找到有recovery nomodeset的行，<strong>删除</strong><code>recovery nomodeset</code> ，并在本行末尾<strong>加上</strong><code>quiet splash rw single init=/bin/bash</code> ，按F10；</li></ol><p><img src="image-20210717135936486.png" alt="image-20210717135936486"></p><p><img src="image-20210717140418626.png" alt="image-20210717140418626"></p><ol><li>在命令行输入passwd 用户名，修改密码</li></ol><p><img src="image-20210717140527140.png" alt="image-20210717140527140"></p><p>​        这里我将用户root的密码修改成了123456,这样下次就可以直接进入了</p><h2 id="火眼仿真绕过"><a href="#火眼仿真绕过" class="headerlink" title="火眼仿真绕过"></a>火眼仿真绕过</h2><p>放入虚拟机的vmdk文件</p><p><img src="image-20211021214423156.png" alt="image-20211021214423156"></p><p><img src="image-20211021214653320.png" alt="image-20211021214653320"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;ubuntu跳过登录&quot;&gt;&lt;a href=&quot;#ubuntu跳过登录&quot; class=&quot;headerlink&quot; title=&quot;ubuntu跳过登录&quot;&gt;&lt;/a&gt;ubuntu跳过登录&lt;/h1&gt;&lt;h2 id=&quot;常规方法&quot;&gt;&lt;a href=&quot;#常规方法&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+      <category term="forensics" scheme="https://mercer5.github.io/categories/forensics/"/>
+    
+    
+      <category term="secure" scheme="https://mercer5.github.io/tags/secure/"/>
+    
+  </entry>
   
   <entry>
     <title>ssh连接虚拟机</title>
@@ -528,34 +554,6 @@
     
     
       <category term="sql" scheme="https://mercer5.github.io/tags/sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>burpsuit 试水</title>
-    <link href="https://mercer5.github.io/2020/02/12/bp-%E8%AF%95%E6%B0%B4/"/>
-    <id>https://mercer5.github.io/2020/02/12/bp-%E8%AF%95%E6%B0%B4/</id>
-    <published>2020-02-12T13:32:51.000Z</published>
-    <updated>2020-08-24T15:30:09.736Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="burpsuit-试水"><a href="#burpsuit-试水" class="headerlink" title="burpsuit 试水"></a>burpsuit 试水</h1><h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><ol><li>kali</li><li>firefox esr</li><li>burpsuit</li></ol><h2 id="不必要的准备"><a href="#不必要的准备" class="headerlink" title="不必要的准备"></a>不必要的准备</h2><p>以上设备都是kali自带的</p><p>然后我把火狐设置成中文了(英语渣伤不起啊啊啊啊)</p><p>以下是设置成中文的步骤</p><ol><li><p>终端执行:<code>sudo apt -y install firefox-esr-l10n-zh-cn</code></p></li><li><p>设置首选项</p><img src="00822enrly1gbtx6gzl5hj30be0mhwg8.jpg" alt="Snipaste_2020-02-12_21-01-36.png" style="zoom:67%;" /></li><li><p>语言选项</p><img src="00822enrly1gbtx6zf6kcj30rq077jrs.jpg" alt="Snipaste_2020-02-12_21-02-53.png" style="zoom:67%;" /></li><li><p>选择语言</p><img src="00822enrly1gbtx798ju0j30jb0990t8.jpg" alt="Snipaste_2020-02-12_21-03-28.png" style="zoom:67%;" /></li><li><p>加入并确认</p><img src="00822enrly1gbtx7pzid9j30j509hgm3.jpg" alt="Snipaste_2020-02-12_21-04-05.png" style="zoom:67%;" /></li></ol><h2 id="设置代理及证书"><a href="#设置代理及证书" class="headerlink" title="设置代理及证书"></a>设置代理及证书</h2><ol><li><p>菜单-&gt;首选项-&gt;常规-&gt;拉到最下面-&gt;网络设置</p><img src="00822enrly1gbtxlbobp7j30pv0j2768.jpg" alt="Snipaste_2020-02-12_21-09-50.png" style="zoom:67%;" /></li><li><p>设置代理</p><img src="00822enrly1gbtxlp4s27j30ly0a3gmq.jpg" alt="Snipaste_2020-02-12_21-10-37.png" style="zoom:67%;" /></li><li><p>打开bp</p></li><li><p>在火狐中输入:<a href="http://burp/" target="_blank" rel="noopener">http://burp/</a>       <strong>必须先打开bp</strong></p></li><li><p>下载</p><img src="00822enrly1gbtxlwyuqwj30n203ojrf.jpg" alt="Snipaste_2020-02-12_21-15-28.png" style="zoom:67%;" /></li><li><p>保存</p><img src="00822enrly1gbtxmfkusgj30dy0ahdgk.jpg" alt="Snipaste_2020-02-12_21-16-10.png" style="zoom:67%;" /></li><li><p>在查看证书中确认</p><img src="00822enrly1gbtxmpddtpj30m50d475n.jpg" alt="Snipaste_2020-02-12_21-17-28.png" style="zoom:67%;" /></li><li><p>导入,选中下载的文件,全点信任,ojbk</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;burpsuit-试水&quot;&gt;&lt;a href=&quot;#burpsuit-试水&quot; class=&quot;headerlink&quot; title=&quot;burpsuit 试水&quot;&gt;&lt;/a&gt;burpsuit 试水&lt;/h1&gt;&lt;h2 id=&quot;设备&quot;&gt;&lt;a href=&quot;#设备&quot; class=&quot;head
-      
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://mercer5.github.io/categories/web/"/>
-    
-    
-      <category term="web" scheme="https://mercer5.github.io/tags/web/"/>
-    
-      <category term="burp" scheme="https://mercer5.github.io/tags/burp/"/>
     
   </entry>
   
