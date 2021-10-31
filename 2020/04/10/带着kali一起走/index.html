@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="mercer" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="带着kali一起走 本来想装arch的来着,久仰邪教大名 ┏┛墓┗┓...(((m -__-)m,不愧是邪教 ubuntu也搞了好久,但是没成功 所以在kali这碰碰运气 没想到啊,除了一点小问题,竟然成功了 这里贴上我参考的blog: https:&#x2F;&#x2F;blog.51cto.com&#x2F;zdzhu&#x2F;1574543 下面,就大致记录一下过程,以及问题的解决  准备工作 kali镜像: 墙裂建议清华镜像站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带着kali一起走">
+<meta property="og:url" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/index.html">
+<meta property="og:site_name" content="mercer">
+<meta property="og:description" content="带着kali一起走 本来想装arch的来着,久仰邪教大名 ┏┛墓┗┓...(((m -__-)m,不愧是邪教 ubuntu也搞了好久,但是没成功 所以在kali这碰碰运气 没想到啊,除了一点小问题,竟然成功了 这里贴上我参考的blog: https:&#x2F;&#x2F;blog.51cto.com&#x2F;zdzhu&#x2F;1574543 下面,就大致记录一下过程,以及问题的解决  准备工作 kali镜像: 墙裂建议清华镜像站">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-10_00-17-37.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-30-27.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-13-27.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-14-15.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-14-59.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-16-04.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_16-17-46.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re6FvyXY59AAEB5AV5vKQ372.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re6FuCaDs7AAGWORRZME8348.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKiom1Re7Nyx59VvAAFjcAthyVE334.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re7WPAvHOOAABTGEcUUw0628.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re7bbw08-aAACk6_CZoaE473.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re7gvwAJPEAAECKN4L6LY399.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKiom1Re7aSwR1oeAAEn-52ZjS4680.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re7gyiUZ0AAAENvyGLgoI864.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKiom1Re7aTBw8A3AAE_Gi5OlLc587.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/wKioL1Re7gzgKrOGAAC7YqvuJ7o544.jpg">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-05-06.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-05-14.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-05-31.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-05-35.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-06-18-1586430144451.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-06-42.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_18-06-49.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_19-07-45.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_19-07-59.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_19-08-32.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-10_00-26-09.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-09_23-46-38.png">
+<meta property="article:published_time" content="2020-04-10T03:57:39.000Z">
+<meta property="article:modified_time" content="2020-08-24T15:30:09.789Z">
+<meta property="article:author" content="mercer">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/Snipaste_2020-04-10_00-17-37.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","Sidebar Display, available value (only for Muse | Mist)":null,"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mercer5.github.io/2020/04/10/带着kali一起走/"/>
+
+
+
+
+
+  <title>带着kali一起走 | mercer</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mercer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mercer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mercer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">带着kali一起走</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-10T11:57:39+08:00">
+                2020-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-24T23:30:09+08:00">
+                2020-08-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/" class="leancloud_visitors" data-flag-title="带着kali一起走">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="带着kali一起走"><a href="#带着kali一起走" class="headerlink" title="带着kali一起走"></a>带着kali一起走</h1><blockquote>
+<p>本来想装arch的来着,久仰邪教大名</p>
+<p><code>┏┛墓┗┓...(((m -__-)m</code>,不愧是邪教</p>
+<p>ubuntu也搞了好久,但是没成功</p>
+<p>所以在kali这碰碰运气</p>
+<p>没想到啊,除了一点小问题,竟然成功了</p>
+<p>这里贴上我参考的blog: <a href="https://blog.51cto.com/zdzhu/1574543" target="_blank" rel="noopener">https://blog.51cto.com/zdzhu/1574543</a></p>
+<p>下面,就大致记录一下过程,以及问题的解决</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>kali镜像: 墙裂建议<a href="https://mirror.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华镜像站</a></li>
+<li>vm: 去官网找一下吧,我的是15的</li>
+<li>U盘: 我用的是SanDisk32G的</li>
+</ol>
+<h2 id="U盘的处理"><a href="#U盘的处理" class="headerlink" title="U盘的处理"></a>U盘的处理</h2><blockquote>
+<p>这是我自己瞎鼓捣出来的,所以我不确定有什么后果,虽然最终是成功了的</p>
+</blockquote>
+<h3 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h3><p>就在我愉快的进行到最后一步时</p>
+<p><strong>在SCSI3(0,0,0)(sda)设备的第1分区上创建ext4文件系统失败</strong></p>
+<p>To be continue……</p>
+<p>然后,我寻思着,整个安装过程都没什么我可以瞎几把乱点的地方</p>
+<p>然后我看看因为装arch,装ubuntu,格式化了2次的U盘</p>
+<p>再看看报错说: 创建ext4<strong>文件系统</strong>失败</p>
+<p>在格式化U盘时,一直是默认的fat32<strong>文件系统</strong></p>
+<p>我觉得我可以换一种试试,比如<strong>exfat</strong></p>
+<p>然后意外的成了!!!</p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><ol>
+<li><p>此电脑</p>
+</li>
+<li><p>在U盘处右键,选择<strong>格式化</strong></p>
+<p><img src="Snipaste_2020-04-10_00-17-37.png" alt="Snipaste_2020-04-10_00-17-37"></p>
+</li>
+<li><p>设置文件系统为<strong>exfat</strong></p>
+<p><img src="Snipaste_2020-04-09_16-30-27.png" alt="Snipaste_2020-04-09_16-30-27"></p>
+</li>
+</ol>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><ol>
+<li><p>创建新的虚拟机,选择典型</p>
+<p><img src="Snipaste_2020-04-09_16-13-27.png" alt="Snipaste_2020-04-09_16-13-27"></p>
+</li>
+<li><p>选第二个,浏览找到你所下载的镜像文件</p>
+<p><img src="Snipaste_2020-04-09_16-14-15.png" alt="Snipaste_2020-04-09_16-14-15"></p>
+</li>
+<li><p>linux,版本我就乱选了&gt;&lt;</p>
+<p><img src="Snipaste_2020-04-09_16-14-59.png" alt="Snipaste_2020-04-09_16-14-59"></p>
+</li>
+<li><p>你可以给你的虚拟机取一个好听的名字,放在一个你能找到的位置</p>
+<p>毕竟它命不久矣</p>
+<p><img src="Snipaste_2020-04-09_16-16-04.png" alt="Snipaste_2020-04-09_16-16-04"></p>
+</li>
+<li><p>分配磁盘空间,这里可以乱搞</p>
+<p><img src="Snipaste_2020-04-09_16-17-46.png" alt="Snipaste_2020-04-09_16-17-46"></p>
+</li>
+<li><p>这样就好了</p>
+</li>
+</ol>
+<h2 id="虚拟机的配置"><a href="#虚拟机的配置" class="headerlink" title="虚拟机的配置"></a>虚拟机的配置</h2><ol>
+<li>单击“编辑虚拟机设置”</li>
+</ol>
+<p><img src="wKioL1Re6FvyXY59AAEB5AV5vKQ372.jpg" alt="wKioL1Re6FvyXY59AAEB5AV5vKQ372.jpg"></p>
+<ol start="2">
+<li>选择硬盘，然后单击下面的“移除”，然后单击“确定”。</li>
+</ol>
+<p><img src="wKioL1Re6FuCaDs7AAGWORRZME8348.jpg" alt="wKioL1Re6FuCaDs7AAGWORRZME8348.jpg"></p>
+<h2 id="装系统进U盘"><a href="#装系统进U盘" class="headerlink" title="装系统进U盘"></a>装系统进U盘</h2><blockquote>
+<p>这里我是粘贴了上面记载的博客的内容</p>
+<p>然后针对我和他不一样的地方进行注释</p>
+</blockquote>
+<ol>
+<li>将U盘或者移动硬盘插到PC上</li>
+<li>在Vmware中运行刚刚创建后的虚拟机。</li>
+<li>虚拟机运行后单击右下角的移动设备挂载按键，如下红色框所示。</li>
+</ol>
+<p><img src="wKiom1Re7Nyx59VvAAFjcAthyVE334.jpg" alt="wKiom1Re7Nyx59VvAAFjcAthyVE334.jpg"></p>
+<ol start="4">
+<li>选择如下红框内容。</li>
+</ol>
+<p><img src="wKioL1Re7WPAvHOOAABTGEcUUw0628.jpg" alt="wKioL1Re7WPAvHOOAABTGEcUUw0628.jpg"></p>
+<ol start="5">
+<li>在下面弹出的对话框中单击确定，此时移动设备会挂载到虚拟机下，Windows下将暂时看不到这个设备。</li>
+</ol>
+<p><img src="wKioL1Re7bbw08-aAACk6_CZoaE473.jpg" alt="wKioL1Re7bbw08-aAACk6_CZoaE473.jpg"></p>
+<ol start="6">
+<li>选择图形化安装Kali。然后按回车键。</li>
+</ol>
+<p><img src="wKioL1Re7gvwAJPEAAECKN4L6LY399.jpg" alt="wKioL1Re7gvwAJPEAAECKN4L6LY399.jpg"></p>
+<ol start="7">
+<li>步骤6结束后会让你选择系统语言、键盘语言、主机名、root密码等</li>
+</ol>
+<hr>
+<p><strong>注意!!!</strong></p>
+<p>第7步,键盘语言,务必选择<strong>英语(美国)</strong></p>
+<p>我好像选错了,选成英语(英国)了,结果有些按键对不上</p>
+<p>eg:<code>@</code>—&gt;<code>&quot;</code>,<code>&quot;</code>—&gt;<code>@</code>, <code>#</code>—&gt;一个我打不出来的东西</p>
+<p>如果选错了,可以拉到下面的<strong>问题</strong>处</p>
+<p>第8步,我的和那个博客的大佬的不大一样,没有第一个选项</p>
+<p>所以直接使用默认,即<strong>向导 - 使用整个磁盘</strong></p>
+<hr>
+<ol start="8">
+<li>设置完root密码后，安装界面最后会停到“磁盘分区”界面如下。这里建议选择默认“使用最多的连续空闲空间”。然后单击继续。</li>
+</ol>
+<p><img src="wKiom1Re7aSwR1oeAAEn-52ZjS4680.jpg" alt="wKiom1Re7aSwR1oeAAEn-52ZjS4680.jpg"></p>
+<ol start="9">
+<li>这里会发现你的移动设备被扫描到了。建议大家选择“将所有文件放在一个分区中”。</li>
+</ol>
+<p><img src="wKioL1Re7gyiUZ0AAAENvyGLgoI864.jpg" alt="wKioL1Re7gyiUZ0AAAENvyGLgoI864.jpg"></p>
+<ol start="10">
+<li>系统会自动给您创建一个分区，如下。选择“分区设定结束并将修改写入磁盘”。此时正式的安全就开始了。时间估计在20分钟左右。</li>
+</ol>
+<p>在此过程中还会让设置几个选项，一个是“网络镜像”建议选否，一个是“将GRUB启动引导器安装到主引导记录（MBR）上，一定选“是”。</p>
+<p><img src="wKiom1Re7aTBw8A3AAE_Gi5OlLc587.jpg" alt="wKiom1Re7aTBw8A3AAE_Gi5OlLc587.jpg"></p>
+<ol start="11">
+<li>安装完成后单击“继续”此时系统会重启，由于Vmware重启后不会自动挂载移动设备，所以无法进入到刚刚安装完毕的系统中。不过此时已经不重要了，因为系统已经安装到移动设备中。单击“关闭客户机”关闭虚拟机。然后拔下移动硬盘或者U盘，快去重启PC然后选择USB启动试试，看看是否OK！</li>
+</ol>
+<p><img src="wKioL1Re7gzgKrOGAAC7YqvuJ7o544.jpg" alt="wKioL1Re7gzgKrOGAAC7YqvuJ7o544.jpg"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
+<p>贴上自己的使用经历</p>
+<p>如果不放心的话,可以先选择虚拟机那个</p>
+<p>毕竟”虚拟机”,听着就很安全: )</p>
+</blockquote>
+<h3 id="电脑"><a href="#电脑" class="headerlink" title="电脑"></a>电脑</h3><hr>
+<p>自己的电脑舍不得用,所以把家里的超级老电脑(ThinkPad)搬了出来</p>
+<ol>
+<li><p>开机</p>
+</li>
+<li><p>狂按f12</p>
+</li>
+<li><p>选择usb</p>
+</li>
+<li><p>然后等就行了</p>
+</li>
+</ol>
+<p>这一等就是五六分钟……我都在自己笔记本上开始搜: U盘启动系统卡在初始页面咋办</p>
+<p>不知道是电脑老还是系统在U盘里的原因,开机速度很慢,</p>
+<p>使用的话,比那台老电脑使用win7的时候好点,这是不是说明,我用一台好电脑就行了?</p>
+<hr>
+<p>emmm,试了一下我自己的笔记本(Asus),哇,简直了</p>
+<p>我本来以为和老机一样,直接就可以进了,没想到从f2/esc/f7/f8/f12,tmd一个个按了个遍</p>
+<p>就是没找到U盘启动项在哪里&gt;&lt;</p>
+<ol>
+<li>第一次使用的小伙伴要开机按<strong>f2</strong>进入bios</li>
+<li>进入<strong>security</strong>选项卡,<strong>security boot menu</strong>,然后点击<strong>secure boot control</strong>,把改为<strong>disabled</strong></li>
+<li>进入<strong>boot</strong>选项卡,把<strong>CSM</strong>的什么东西(全称记不住了,反正只有一个),改为<strong>enable</strong></li>
+<li><strong>f10</strong>保存退出</li>
+<li>开机按<strong>f12</strong>进入选择启动项,这时候就有别的选项了,选择自己的U盘,ojbk</li>
+</ol>
+<p>开机比上面的老电脑好多了,至少不会有种完了进不去了的感觉</p>
+<p>使用速度确实比较慢,U盘还是限制了发挥</p>
+<hr>
+<h3 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h3><ol>
+<li><p>新建虚拟机,选择自定义</p>
+<p><img src="Snipaste_2020-04-09_18-05-06.png" alt="Snipaste_2020-04-09_18-05-06"></p>
+</li>
+<li><p>过</p>
+<p><img src="Snipaste_2020-04-09_18-05-14.png" alt="Snipaste_2020-04-09_18-05-14"></p>
+</li>
+<li><p>稍后安装操作系统</p>
+<p><img src="Snipaste_2020-04-09_18-05-31.png" alt="Snipaste_2020-04-09_18-05-31"></p>
+</li>
+<li><p>取名和选择版本(随便啦)</p>
+<p><img src="Snipaste_2020-04-09_18-05-35.png" alt="Snipaste_2020-04-09_18-05-35"></p>
+</li>
+<li><p>名称位置(还是随便)</p>
+<p><img src="Snipaste_2020-04-09_18-06-18-1586430144451.png" alt="Snipaste_2020-04-09_18-06-18"></p>
+</li>
+<li><p>使用物理磁盘</p>
+<p><img src="Snipaste_2020-04-09_18-06-42.png" alt="Snipaste_2020-04-09_18-06-42"></p>
+</li>
+<li><p>选择自己U盘的那个设备</p>
+<p><img src="Snipaste_2020-04-09_18-06-49.png" alt="Snipaste_2020-04-09_18-06-49"></p>
+</li>
+<li><p>后面就没啥了</p>
+</li>
+</ol>
+<p>虚拟机是在我的电脑中开的,很流畅,说明确实是电脑问题</p>
+<p>不过开机和我直接装在虚拟机上的kali比,慢了不少</p>
+<p>日常使用,emmm,用的不多还没感受出来</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
+<p>记录我在配置kali时遇到的问题</p>
+</blockquote>
+<h3 id="键盘映射有问题"><a href="#键盘映射有问题" class="headerlink" title="键盘映射有问题"></a>键盘映射有问题</h3><ol>
+<li><p>打开设置界面</p>
+<p><img src="Snipaste_2020-04-09_19-07-45.png" alt="Snipaste_2020-04-09_19-07-45"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>键盘</p>
+<p><img src="Snipaste_2020-04-09_19-07-59.png" alt="Snipaste_2020-04-09_19-07-59"></p>
+</li>
+</ol>
+<ol start="3">
+<li><p>在布局中,加入英语(美国),移到最上面,其他删了还是放着随意</p>
+<p><img src="Snipaste_2020-04-09_19-08-32.png" alt="Snipaste_2020-04-09_19-08-32"></p>
+</li>
+<li><p>记得重启</p>
+</li>
+</ol>
+<h3 id="command-not-found"><a href="#command-not-found" class="headerlink" title="command not found"></a>command not found</h3><p>就在弄上面的键盘时,用到了重启</p>
+<p>所以我试着输入了<code>reboot</code></p>
+<p>oho,没用</p>
+<ol>
+<li><code>echo $PATH</code> 查看一下,路径里有啥,确实没有/sbin</li>
+<li><code>export PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin</code> 增加一些路径</li>
+</ol>
+<p>因为路径里存放着,我们所用到的命令</p>
+<p>从本质上来说,我们所使用的命令就是一个个程序,他们被存放在某个地方</p>
+<p>我们在终端中使用命令时,会从路径中找到那个程序</p>
+<p>我们的情况就是,我们没告诉他路径是什么,所以他找不到</p>
+<p>因此,如果我们知到放在哪里,就可以直接去使用</p>
+<p>eg: <code>reboot</code> 在<code>/sbin</code> 里,所以我们可以使用<code>/sbin/reboot</code> 来重启</p>
+<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><blockquote>
+<p>一些方便使用的,提升使用舒适度的小tip</p>
+</blockquote>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>ctrl+alt+t 打开终端</p>
+<p>halt 关机</p>
+<p>reboot 重启</p>
+<h3 id="firefox字体太小"><a href="#firefox字体太小" class="headerlink" title="firefox字体太小"></a>firefox字体太小</h3><p>如果在<strong>菜单</strong>–&gt;<strong>缩放</strong>那里搞的话,只要换个选项卡就又那么小了,所以要来一个一劳永逸的</p>
+<p><img src="Snipaste_2020-04-10_00-26-09.png" alt="Snipaste_2020-04-10_00-26-09"></p>
+<ol>
+<li><p><code>about:config</code></p>
+<p>会跳出这么一个界面</p>
+<p><img src="Snipaste_2020-04-09_23-46-38.png" alt="Snipaste_2020-04-09_23-46-38"></p>
+</li>
+<li><p>当然选择接受风险啦</p>
+</li>
+<li><p>搜索<code>layout.css.devPixelsPerPx</code></p>
+<p>把默认的<code>-1</code>,调成<code>1.5</code></p>
+<p>1.5即150%,可以由着你们自己的感觉调整</p>
+</li>
+<li><p>该页面不会变,但是你可以去别的页面看看</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>look at here !!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.png" alt="mercer 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="mercer 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    mercer
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/" title="带着kali一起走">https://mercer5.github.io/2020/04/10/%C2%96%E5%B8%A6%E7%9D%80kali%E4%B8%80%E8%B5%B7%E8%B5%B0/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/08/next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="next" title="next主题配置">
+                <i class="fa fa-chevron-left"></i> next主题配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/15/%C2%96dvwa-sql-%E6%98%BE%E6%B3%A8-low/" rel="prev" title="dvwa-sql-显注-low">
+                dvwa-sql-显注-low <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="mercer" />
+            
+              <p class="site-author-name" itemprop="name">mercer</p>
+              <p class="site-description motion-element" itemprop="description">rua......</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mercer5" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:602501833@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://404mercer.google.com/Alex Mercer" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shal10w.github.io/" title="shallow" target="_blank">shallow</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cor1e.cn" title="cor1e" target="_blank">cor1e</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.wootec.top" title="reverier" target="_blank">reverier</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yunq1ao.com" title="yunq1ao" target="_blank">yunq1ao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://eqqie.cn" title="赤道企鹅" target="_blank">赤道企鹅</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.frankli.site" title="frank" target="_blank">frank</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_39679772" title="zjx大佬" target="_blank">zjx大佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ll1ng.github.io/" title="ling" target="_blank">ling</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.f1ag.com/" title="f1ag" target="_blank">f1ag</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://arttnba3.cn/" title="arttnba3" target="_blank">arttnba3</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blackbird-bb.github.io/" title="BlackBird" target="_blank">BlackBird</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://39.105.105.208/" title="Wal1et" target="_blank">Wal1et</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.konge.pw/" title="konge" target="_blank">konge</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#带着kali一起走"><span class="nav-number">1.</span> <span class="nav-text">带着kali一起走</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U盘的处理"><span class="nav-number">1.2.</span> <span class="nav-text">U盘的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经过"><span class="nav-number">1.2.1.</span> <span class="nav-text">经过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化"><span class="nav-number">1.2.2.</span> <span class="nav-text">格式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">创建虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机的配置"><span class="nav-number">1.4.</span> <span class="nav-text">虚拟机的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装系统进U盘"><span class="nav-number">1.5.</span> <span class="nav-text">装系统进U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.6.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑"><span class="nav-number">1.6.1.</span> <span class="nav-text">电脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机"><span class="nav-number">1.6.2.</span> <span class="nav-text">虚拟机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.7.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘映射有问题"><span class="nav-number">1.7.1.</span> <span class="nav-text">键盘映射有问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command-not-found"><span class="nav-number">1.7.2.</span> <span class="nav-text">command not found</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.8.</span> <span class="nav-text">tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">1.8.1.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firefox字体太小"><span class="nav-number">1.8.2.</span> <span class="nav-text">firefox字体太小</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mercer</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">53.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GgA5mHgKkol7R7gWQ07qn783-gzGzoHsz", "piEfOvtlnJyMoGkadyJdx7oc");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+
+
+</body>
+</html>
