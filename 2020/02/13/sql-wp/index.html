@@ -90,12 +90,12 @@
 
 
 
-<meta name="description" content="sql wp网址http:&#x2F;&#x2F;xuesql.cn&#x2F; tip服务SELECT查询语法 12345SELECT column, another_column, … FROM mytable WHERE condition(s)ORDER BY column ASC&#x2F;DESC LIMIT num_limit OFFSET num_offset;    用INNER JOIN 连接表的语法 1234567">
+<meta name="description" content="sql wp网址http:&#x2F;&#x2F;xuesql.cn&#x2F; tip服务SELECT查询语法 12345SELECT column, another_column, … FROM mytable WHERE condition(s)ORDER BY column ASC&#x2F;DESC LIMIT num_limit OFFSET num_offset; 用INNER JOIN 连接表的语法 1234567SEL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql-wp">
 <meta property="og:url" content="https://mercer5.github.io/2020/02/13/sql-wp/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="sql wp网址http:&#x2F;&#x2F;xuesql.cn&#x2F; tip服务SELECT查询语法 12345SELECT column, another_column, … FROM mytable WHERE condition(s)ORDER BY column ASC&#x2F;DESC LIMIT num_limit OFFSET num_offset;    用INNER JOIN 连接表的语法 1234567">
+<meta property="og:description" content="sql wp网址http:&#x2F;&#x2F;xuesql.cn&#x2F; tip服务SELECT查询语法 12345SELECT column, another_column, … FROM mytable WHERE condition(s)ORDER BY column ASC&#x2F;DESC LIMIT num_limit OFFSET num_offset; 用INNER JOIN 连接表的语法 1234567SEL">
 <meta property="article:published_time" content="2020-02-13T12:39:04.000Z">
 <meta property="article:modified_time" content="2020-08-24T15:30:09.763Z">
 <meta property="article:author" content="mercer">
@@ -401,32 +401,17 @@
         <h1 id="sql-wp"><a href="#sql-wp" class="headerlink" title="sql wp"></a>sql wp</h1><h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><p><a href="http://xuesql.cn/" target="_blank" rel="noopener">http://xuesql.cn/</a></p>
 <h2 id="tip"><a href="#tip" class="headerlink" title="tip"></a>tip</h2><p>服务SELECT查询语法</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span>, another_column, … </span><br><span class="line"><span class="keyword">FROM</span> mytable </span><br><span class="line"><span class="keyword">WHERE</span> condition(s)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">column</span> <span class="keyword">ASC</span>/<span class="keyword">DESC</span> </span><br><span class="line"><span class="keyword">LIMIT</span> num_limit <span class="keyword">OFFSET</span> num_offset;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>用INNER JOIN 连接表的语法</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span>, another_table_column, … </span><br><span class="line"><span class="keyword">FROM</span> mytable （主表） </span><br><span class="line"><span class="keyword">INNER</span>/<span class="keyword">LEFT</span>/<span class="keyword">RIGHT</span>/<span class="keyword">FULL</span> <span class="keyword">JOIN</span> another_table （要连接的表）    </span><br><span class="line">	<span class="keyword">ON</span> mytable.id = another_table.id (主键连接，两个相同的连成<span class="number">1</span>条) </span><br><span class="line"><span class="keyword">WHERE</span> condition(s) </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">column</span>, … <span class="keyword">ASC</span>/<span class="keyword">DESC</span> </span><br><span class="line"><span class="keyword">LIMIT</span> num_limit <span class="keyword">OFFSET</span> num_offset;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>在查询条件中处理 NULL</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span>, another_column, … </span><br><span class="line"><span class="keyword">FROM</span> mytable </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">column</span> <span class="keyword">IS</span>/<span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">AND</span>/<span class="keyword">OR</span> another_condition </span><br><span class="line"><span class="keyword">AND</span>/<span class="keyword">OR</span> …;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>属性列和表取别名的例子</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span> <span class="keyword">AS</span> better_column_name, … </span><br><span class="line"><span class="keyword">FROM</span> a_long_widgets_table_name <span class="keyword">AS</span> mywidgets </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> widget_sales</span><br><span class="line">	<span class="keyword">ON</span> mywidgets.id = widget_sales.widget_id;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>对全部结果数据做统计</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> AGG_FUNC(\column_or_expression\) <span class="keyword">AS</span> aggregate_description, … </span><br><span class="line"><span class="keyword">FROM</span> mytable </span><br><span class="line"><span class="keyword">WHERE</span> constraint_expression;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>用分组的方式统计</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">先对数据做WHERE，后对结果做分组</span><br><span class="line"><span class="keyword">SELECT</span> AGG_FUNC(column_or_expression) <span class="keyword">AS</span> aggregate_description, … </span><br><span class="line"><span class="keyword">FROM</span> mytable </span><br><span class="line"><span class="keyword">WHERE</span> constraint_expression </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">column</span>;</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -434,8 +419,9 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>COUNT(*****), COUNT(column)</td>
+<tbody>
+<tr>
+<td>COUNT(<strong>*</strong>), COUNT(column)</td>
 <td>计数！COUNT(*) 统计数据行数，COUNT(column) 统计column非NULL的行数.</td>
 </tr>
 <tr>
@@ -454,17 +440,13 @@
 <td>SUM(column)</td>
 <td>对column所有行求和.</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>用HAVING进行筛选</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">可以对分组之后的数据再做<span class="keyword">SELECT</span>筛选</span><br><span class="line"><span class="keyword">SELECT</span> group_by_column, AGG_FUNC(column_expression) <span class="keyword">AS</span> aggregate_result_alias, … </span><br><span class="line"><span class="keyword">FROM</span> mytable </span><br><span class="line"><span class="keyword">WHERE</span> condition </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">column</span> <span class="keyword">HAVING</span> \group_condition\;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>完整的SELECT查询</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">column</span>, AGG_FUNC(column_or_expression), … </span><br><span class="line"><span class="keyword">FROM</span> mytable    </span><br><span class="line"><span class="keyword">JOIN</span> another_table      </span><br><span class="line">	<span class="keyword">ON</span> mytable.column = another_table.column    </span><br><span class="line"><span class="keyword">WHERE</span> constraint_expression   </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">column</span>    </span><br><span class="line"><span class="keyword">HAVING</span> constraint_expression    </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">column</span> <span class="keyword">ASC</span>/<span class="keyword">DESC</span>    </span><br><span class="line"><span class="keyword">LIMIT</span> <span class="keyword">count</span> <span class="keyword">OFFSET</span> <span class="keyword">COUNT</span>;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="lesson-0"><a href="#lesson-0" class="headerlink" title="lesson 0"></a>lesson 0</h2><p>照着抄就行了</p>
 <h2 id="lesson-1-select"><a href="#lesson-1-select" class="headerlink" title="lesson 1 select"></a>lesson 1 select</h2><ol>
 <li><p>找到所有电影的名称<code>title</code></p>
@@ -507,9 +489,6 @@
 </li>
 <li><p>找到99年和09年的电影,只要列出年份和片长看下</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">year</span>,length_minutes <span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">year</span>=<span class="number">1999</span> <span class="keyword">or</span> <span class="keyword">year</span>=<span class="number">2009</span>;</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-3-condition"><a href="#lesson-3-condition" class="headerlink" title="lesson 3 condition"></a>lesson 3 condition</h2><ol>
@@ -533,9 +512,6 @@
 </li>
 <li><p>John Lasseter导演了两个系列，一个Car系列一个Toy Story系列,请帮我列出这John Lasseter导演两个系列千禧年之后的电影</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">where</span> director <span class="keyword">like</span> <span class="string">'john lasseter'</span></span><br><span class="line">    <span class="keyword">and</span> <span class="keyword">year</span>&gt;<span class="number">2000</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-4-filtering-and-sorting"><a href="#lesson-4-filtering-and-sorting" class="headerlink" title="lesson 4 filtering and sorting"></a>lesson 4 filtering and sorting</h2><ol>
@@ -556,9 +532,6 @@
 </li>
 <li><p>按导演名字母升序,如果导演名相同按年份降序,取前10部电影给我</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> director <span class="keyword">asc</span>,<span class="keyword">year</span> <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-5-review"><a href="#lesson-5-review" class="headerlink" title="lesson 5 review"></a>lesson 5 review</h2><ol>
@@ -579,9 +552,6 @@
 </li>
 <li><p>北美所有城市,请按国家名字母序从A-Z再按人口从多到少排列看下前10位的城市(包括所有字段)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> north_american_cities</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> country <span class="keyword">asc</span> ,population <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-6-inner-join"><a href="#lesson-6-inner-join" class="headerlink" title="lesson 6 inner join"></a>lesson 6 inner join</h2><ol>
@@ -596,9 +566,6 @@
 </li>
 <li><p>每部电影按线上销售额比较,排名最靠前的导演是谁,线上销量多少</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> director,International_sales <span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> Boxoffice </span><br><span class="line">    <span class="keyword">on</span> movies.id = boxoffice.movie_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> International_sales <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-7-outer-join"><a href="#lesson-7-outer-join" class="headerlink" title="lesson 7 outer join"></a>lesson 7 outer join</h2><ol>
@@ -613,9 +580,6 @@
 </li>
 <li><p>找到所有有雇员的办公室(<code>buildings</code>)和对应的容量</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> building,<span class="keyword">capacity</span> </span><br><span class="line"><span class="keyword">from</span> employees  </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> buildings  </span><br><span class="line">    <span class="keyword">on</span> employees.building = buildings.building_name </span><br><span class="line"><span class="keyword">where</span> building <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-8-null"><a href="#lesson-8-null" class="headerlink" title="lesson 8 null"></a>lesson 8 null</h2><ol>
@@ -624,9 +588,6 @@
 </li>
 <li><p>找到还没有雇员的办公室</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">distinct</span> building_name <span class="keyword">FROM</span> buildings</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> employees</span><br><span class="line">    <span class="keyword">on</span> employees.building=buildings.building_name</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="Lesson-9-表达式"><a href="#Lesson-9-表达式" class="headerlink" title="Lesson 9 表达式"></a>Lesson 9 表达式</h2><ol>
@@ -644,9 +605,6 @@
 </li>
 <li><p>电影名最长的3部电影和他们的总销量是多少</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> title,<span class="keyword">length</span>(title),Domestic_sales+International_sales <span class="keyword">as</span> total <span class="keyword">FROM</span> movies <span class="keyword">as</span> mov</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> boxoffice <span class="keyword">as</span> box</span><br><span class="line">    <span class="keyword">on</span> mov.id = box.movie_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">length</span>(title) <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-10-统计1"><a href="#lesson-10-统计1" class="headerlink" title="lesson 10 统计1"></a>lesson 10 统计1</h2><ol>
@@ -665,11 +623,7 @@
 <li><p>就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)</p>
 <p>==这题没做出来: (,不知道错哪里==</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Years_employed,<span class="keyword">round</span>(<span class="keyword">count</span>(Years_employed)/<span class="number">15.0</span>*<span class="number">100</span>,<span class="number">0</span>)</span><br><span class="line">   <span class="keyword">FROM</span> employees</span><br><span class="line">   <span class="keyword">where</span> years_employed <span class="keyword">in</span> (<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>)</span><br><span class="line">   <span class="keyword">group</span> <span class="keyword">by</span> Years_employed</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">round(数值,小数点保留的位数)</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-11-统计2"><a href="#lesson-11-统计2" class="headerlink" title="lesson 11 统计2"></a>lesson 11 统计2</h2><ol>
@@ -687,9 +641,6 @@
 </li>
 <li><p>按角色和就职年份统计人数,年份按0-3，3-6，6-9这种阶梯分组，最后按角色+阶梯分组排序</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="lesson-12"><a href="#lesson-12" class="headerlink" title="lesson 12"></a>lesson 12</h2><ol>
@@ -704,9 +655,6 @@
 </li>
 <li><p>找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> title,(<span class="keyword">select</span> <span class="keyword">max</span>(Domestic_sales+International_sales) <span class="keyword">from</span> Boxoffice)-(Domestic_sales+International_sales) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">FROM</span> movies <span class="keyword">as</span> m</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> Boxoffice <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> b.movie_id=m.id</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 
@@ -879,7 +827,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -890,7 +838,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -901,7 +849,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1322,7 +1270,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.8k</span>
+    <span title="Site words total count">49k</span>
   
 </div>
 
