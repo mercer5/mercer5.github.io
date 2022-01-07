@@ -92,14 +92,15 @@ Fermat's factorization method
 $$
 \because \forall 奇数n = ab = x^2-y^2 \\
 \therefore n = ab = (x+y)(x-y) \\
-\begin{equation}
+$$
+
+$$
 \left\{
              \begin{array}{l}
              a = x+y \\
              b = x-y \\
              \end{array}
 \right.
-\end{equation}
 \\
 $$
 
@@ -278,7 +279,7 @@ Known High Bits Message Attack
 $$
 \because c \equiv (m_0+x)^e \pmod n \\
 set \  f(x) = (m+x)^e - c \\
-\therefore \exist x , \  s.t. f(x) = k\cdot n (k = 0,1,2,...)
+\therefore 存在 x , \  s.t. f(x) = k\cdot n (k = 0,1,2,...)
 $$
 求解出x后,依据coppersmith定理,可以求出剩下的所有明文部分
 
