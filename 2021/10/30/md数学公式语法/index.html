@@ -90,12 +90,12 @@
 
 
 
-<meta name="description" content="md数学公式语法行内与独行 行内公式：将公式插入到本行内，符号：公式内容，如：$xyz$  独行公式：将公式插入到新的一行内，并且居中，符号：$$$公式内容$$$， 输入两个$+回车,就可以自动生成一个数学公式块 如：  asdf  上标、下标与组合 上标符号，符号：^，如：$x^4$ 下标符号，符号：_，如：$x_1$ 组合符号，符号：{}，如：${16}_{8}O{2+}_{2}$  汉字、字">
+<meta name="description" content="md数学公式语法行内与独行 行内公式：将公式插入到本行内，符号：$公式内容$，如：$xyz$  独行公式：将公式插入到新的一行内，并且居中，符号：$$公式内容$$， 输入两个$+回车,就可以自动生成一个数学公式块 如：$$asdf$$   上标、下标与组合 上标符号，符号：^，如：$x^4$ 下标符号，符号：_，如：$x_1$ 组合符号，符号：{}，如：${16}{8}O{2+}{2}$  汉字、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="md数学公式语法">
 <meta property="og:url" content="https://mercer5.github.io/2021/10/30/md%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="md数学公式语法行内与独行 行内公式：将公式插入到本行内，符号：公式内容，如：$xyz$  独行公式：将公式插入到新的一行内，并且居中，符号：$$$公式内容$$$， 输入两个$+回车,就可以自动生成一个数学公式块 如：  asdf  上标、下标与组合 上标符号，符号：^，如：$x^4$ 下标符号，符号：_，如：$x_1$ 组合符号，符号：{}，如：${16}_{8}O{2+}_{2}$  汉字、字">
+<meta property="og:description" content="md数学公式语法行内与独行 行内公式：将公式插入到本行内，符号：$公式内容$，如：$xyz$  独行公式：将公式插入到新的一行内，并且居中，符号：$$公式内容$$， 输入两个$+回车,就可以自动生成一个数学公式块 如：$$asdf$$   上标、下标与组合 上标符号，符号：^，如：$x^4$ 下标符号，符号：_，如：$x_1$ 组合符号，符号：{}，如：${16}{8}O{2+}{2}$  汉字、">
 <meta property="article:published_time" content="2021-10-30T13:38:41.000Z">
 <meta property="article:modified_time" content="2021-10-30T13:44:35.178Z">
 <meta property="article:author" content="mercer">
@@ -399,18 +399,17 @@
 
       
         <h1 id="md数学公式语法"><a href="#md数学公式语法" class="headerlink" title="md数学公式语法"></a>md数学公式语法</h1><h2 id="行内与独行"><a href="#行内与独行" class="headerlink" title="行内与独行"></a>行内与独行</h2><ol>
-<li><p><strong>行内公式</strong>：将公式插入到本行内，符号：<script type="math/tex">公式内容</script>，如：$xyz$</p>
+<li><p><strong>行内公式</strong>：将公式插入到本行内，符号：<code>$公式内容$</code>，如：$xyz$</p>
 </li>
-<li><p><strong>独行公式</strong>：将公式插入到新的一行内，并且居中，符号：$$$公式内容$$$，</p>
+<li><p><strong>独行公式</strong>：将公式插入到新的一行内，并且居中，符号：<code>$$公式内容$$</code>，</p>
 <p>输入两个<code>$</code>+回车,就可以自动生成一个数学公式块</p>
-<p>如：</p>
-<script type="math/tex; mode=display">
-asdf</script></li>
+<p>如：<br>$$<br>asdf<br>$$</p>
+</li>
 </ol>
 <h2 id="上标、下标与组合"><a href="#上标、下标与组合" class="headerlink" title="上标、下标与组合"></a>上标、下标与组合</h2><ol>
 <li>上标符号，符号：<code>^</code>，如：$x^4$</li>
 <li>下标符号，符号：<code>_</code>，如：$x_1$</li>
-<li>组合符号，符号：<code>{}</code>，如：${16}_{8}O{2+}_{2}$</li>
+<li>组合符号，符号：<code>{}</code>，如：${16}<em>{8}O{2+}</em>{2}$</li>
 </ol>
 <h2 id="汉字、字体与格式"><a href="#汉字、字体与格式" class="headerlink" title="汉字、字体与格式"></a>汉字、字体与格式</h2><ol>
 <li>汉字形式，符号：<code>\mbox{}</code>，如：$V_{\mbox{初始}}$</li>
@@ -425,15 +424,15 @@ asdf</script></li>
 <li>两个quad空格，符号：<code>\qquad</code>，如：$x \qquad y$</li>
 <li>quad空格，符号：<code>\quad</code>，如：$x \quad y$</li>
 <li>大空格，符号<code>\</code>，如：$x \  y$</li>
-<li>中空格，符号<code>\:</code>，如：$x\:y$</li>
-<li>小空格，符号<code>\,</code>，如：$x \, y$</li>
+<li>中空格，符号<code>\:</code>，如：$x:y$</li>
+<li>小空格，符号<code>\,</code>，如：$x , y$</li>
 <li>没有空格，符号``，如：$xy$</li>
 <li>紧贴，符号<code>\!</code>，如：$x ! y$</li>
 </ol>
 <h2 id="定界符与组合"><a href="#定界符与组合" class="headerlink" title="定界符与组合"></a>定界符与组合</h2><ol>
 <li>括号，符号：<code>（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)</code>，如：$（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)$</li>
 <li>中括号，符号：<code>[]</code>，如：$[x+y]$</li>
-<li>大括号，符号：<code>\{ \}</code>，如：$\{x+y\}$</li>
+<li>大括号，符号：<code>\{ \}</code>，如：${x+y}$</li>
 <li>自适应括号，符号：<code>\left \right</code>，如：$\left(x\right)$，$\left(x{yz}\right)$</li>
 <li>组合公式，符号：<code>{上位公式 \choose 下位公式}</code>，如：${n+1 \choose k}={n \choose k}+{n \choose k-1}$</li>
 <li>组合公式，符号：<code>{上位公式 \atop 下位公式}</code>，如：$\sum_{k_0,k_1,\ldots&gt;0 \atop k_0+k_1+\cdots=n}A_{k_0}A_{k_1}\cdots$</li>
@@ -479,13 +478,11 @@ asdf</script></li>
 </li>
 <li><p>微分运算，符号：<code>\partial</code>，如：$\frac{\partial x}{\partial y}$</p>
 </li>
-<li><p>矩阵表示，符号：<code>\begin{matrix} \end{matrix}</code>，如：$\left[ \begin{matrix} 1 &amp;2 &amp;\cdots &amp;4 \\5 &amp;6 &amp;\cdots &amp;8\\ \vdots &amp;\vdots &amp;\ddots &amp;\vdots \\13 &amp;14 &amp;\cdots &amp;16\end{matrix} \right]$</p>
+<li><p>矩阵表示，符号：<code>\begin{matrix} \end{matrix}</code>，如：$\left[ \begin{matrix} 1 &amp;2 &amp;\cdots &amp;4 \5 &amp;6 &amp;\cdots &amp;8\ \vdots &amp;\vdots &amp;\ddots &amp;\vdots \13 &amp;14 &amp;\cdots &amp;16\end{matrix} \right]$</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;matrix&#125;</span><br><span class="line"><span class="number">1</span> &amp; <span class="number">2</span> &amp; <span class="number">3</span>\\</span><br><span class="line"><span class="number">4</span> &amp; <span class="number">5</span> &amp; <span class="number">6</span>\\</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{matrix}
-1 & 2 & 3\\
-4 & 5 & 6\\
-\end{matrix}</script></li>
+
+<p>$$<br>\begin{matrix}<br>1 &amp; 2 &amp; 3\<br>4 &amp; 5 &amp; 6\<br>\end{matrix}<br>$$</p>
+</li>
 </ol>
 <h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><ol>
 <li>等于运算，符号：<code>=</code>，如：$x+y=z$</li>
@@ -551,8 +548,7 @@ asdf</script></li>
 <li>斜对齐的省略号，符号：<code>\ddots</code>，如：$\ddots$</li>
 <li>单波浪线,符号: <code>\sim</code> , 如: $\sim$</li>
 </ol>
-<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><div class="table-container">
-<table>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table>
 <thead>
 <tr>
 <th>字母</th>
@@ -561,8 +557,7 @@ asdf</script></li>
 <th>实现</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>A</td>
 <td><code>A</code></td>
 <td>α</td>
@@ -706,10 +701,9 @@ asdf</script></li>
 <td>ω</td>
 <td><code>\omega</code></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="向量相关"><a href="#向量相关" class="headerlink" title="向量相关"></a>向量相关</h2><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span>\vec&#123;a&#125;<span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span>\vec&#123;AB&#125;<span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span>\vec&#123;ABC&#125;<span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span>\overrightarrow&#123;AB&#125;<span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span>\overleftarrow&#123;AB&#125;<span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+
 <p>$\vec{a}$<br>$\vec{AB}$<br>$\vec{ABC}$<br>$\overrightarrow{AB}$<br>$\overleftarrow{AB}$</p>
 
       
@@ -1324,7 +1318,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.1k</span>
+    <span title="Site words total count">51.2k</span>
   
 </div>
 

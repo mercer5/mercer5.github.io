@@ -90,12 +90,12 @@
 
 
 
-<meta name="description" content="欧几里德算法及扩展算法欧几里得算法又称碾转相除法，用于计算两整数a, b 的最大公约数。 123456789101112int max(int a, int b)&amp;#123;	int c;	c &#x3D; a % b;	while (c !&#x3D; 0)	&amp;#123;		a &#x3D; b;		b &#x3D; c;		c &#x3D; a % b;	&amp;#125;	return b;&amp;#125; 原理依赖于下面定理：  两个整数的最大公约">
+<meta name="description" content="欧几里德算法及扩展算法欧几里得算法又称碾转相除法，用于计算两整数a, b 的最大公约数。 123456789101112int max(int a, int b)&amp;#123;	int c;	c &#x3D; a % b;	while (c !&#x3D; 0)	&amp;#123;		a &#x3D; b;		b &#x3D; c;		c &#x3D; a % b;	&amp;#125;	return b;&amp;#125;  原理依赖于下面定理：  两个整数的最大公">
 <meta property="og:type" content="article">
 <meta property="og:title" content="欧几里德算法及扩展算法">
 <meta property="og:url" content="https://mercer5.github.io/2020/08/24/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95%E5%8F%8A%E6%89%A9%E5%B1%95%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="欧几里德算法及扩展算法欧几里得算法又称碾转相除法，用于计算两整数a, b 的最大公约数。 123456789101112int max(int a, int b)&amp;#123;	int c;	c &#x3D; a % b;	while (c !&#x3D; 0)	&amp;#123;		a &#x3D; b;		b &#x3D; c;		c &#x3D; a % b;	&amp;#125;	return b;&amp;#125; 原理依赖于下面定理：  两个整数的最大公约">
+<meta property="og:description" content="欧几里德算法及扩展算法欧几里得算法又称碾转相除法，用于计算两整数a, b 的最大公约数。 123456789101112int max(int a, int b)&amp;#123;	int c;	c &#x3D; a % b;	while (c !&#x3D; 0)	&amp;#123;		a &#x3D; b;		b &#x3D; c;		c &#x3D; a % b;	&amp;#125;	return b;&amp;#125;  原理依赖于下面定理：  两个整数的最大公">
 <meta property="article:published_time" content="2020-08-24T15:30:09.857Z">
 <meta property="article:modified_time" content="2020-08-24T15:30:09.857Z">
 <meta property="article:author" content="mercer">
@@ -377,6 +377,7 @@
       
         <h1 id="欧几里德算法及扩展算法"><a href="#欧几里德算法及扩展算法" class="headerlink" title="欧几里德算法及扩展算法"></a>欧几里德算法及扩展算法</h1><h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>又称碾转相除法，用于计算两整数a, b 的最大公约数。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int</span> max(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">int</span> c;</span><br><span class="line">	<span class="attribute">c</span> = a % b;</span><br><span class="line">	<span class="attribute">while</span> (c != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attribute">a</span> = b;</span><br><span class="line">		<span class="attribute">b</span> = c;</span><br><span class="line">		<span class="attribute">c</span> = a % b;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="attribute">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>原理依赖于下面定理：</p>
 <blockquote>
 <p>两个整数的最大公约数等于其中较小的那个数和两数相除的最大公约数。</p>
@@ -390,9 +391,13 @@
 <p>　　设 <code>a&gt;b</code><br>　　当 <code>b = 0</code>时，<code>gcd(a, b) = a</code>，此时<code>x = 1</code>, <code>y = 0</code>。<br>　　假设 <code>a*x1 + b*y1 = gcd(a, b)</code><br>　　则 <code>b*x2 + (a mod b)*y2 = gcd(b, a mod b)</code><br>　　根据 <code>gcd(a, b) = gcd(b, a mod b)</code>　　<br>　　可得 <code>a*x1 + b*y1 = b*x2 + (a mod b)*y2</code>　　<br>　　因为 <code>a mod b = a - (a/b)*b</code> //这里 ‘/‘ 是整除　　<br>　　所以 <code>a*x1 + b*y1 = b*x2 + (a - (a/b)*b)*y2</code><br>　　　　　　　　　　　<code>= b*x2 + a*y2 - (a/b)*b*y2</code><br>　　　　　　 <code>gcd(a, b) = a*y2 + b*(x2 - (a/b)*y2)</code><br>　　对比 <code>a*x1 + b*y1 = gcd(a, b)</code>　　<br>　　发现 <code>x1 = y2</code><br>　　　 　 <code>y1 = x2 - (a/b)*y2</code>　　</p>
 <p>算法代码如下：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> e<span class="constructor">_gcd(<span class="params">int</span> <span class="params">a</span>, <span class="params">int</span> <span class="params">b</span>, <span class="params">int</span> <span class="params">x</span>, <span class="params">int</span> <span class="params">y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b<span class="operator"> == </span><span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">int</span> ans = e<span class="constructor">_gcd(<span class="params">b</span>, <span class="params">a</span>%<span class="params">b</span>, <span class="params">x</span>, <span class="params">y</span>)</span>;</span><br><span class="line">    <span class="built_in">int</span> t = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = x - (a/b)*y;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h2><p><strong>什么叫乘法逆元？</strong></p>
 <p>形如<code>a*x mod b ≡ 1</code><br>我们称x是a关于f的乘法逆元，还有另一种表达式：</p>
 <figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a*<span class="symbol">x</span> + b*<span class="symbol">y</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
 <p>也就是<code>gcd(a, b) = 1</code></p>
 <p>在RSA共模攻击中，求乘法逆元函数如下</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def egcd(<span class="keyword">a</span>, b):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">a</span> == <span class="number">0</span>:</span><br><span class="line">          <span class="literal">return</span> (b, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        g, y, x = egcd(b % <span class="keyword">a</span>, <span class="keyword">a</span>)</span><br><span class="line">        <span class="literal">return</span> (g, x - (b<span class="comment"> // a) * y, y)</span></span><br></pre></td></tr></table></figure>
@@ -1002,7 +1007,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.1k</span>
+    <span title="Site words total count">51.2k</span>
   
 </div>
 
