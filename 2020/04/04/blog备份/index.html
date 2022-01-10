@@ -417,7 +417,7 @@
 <li><p>把新建的分支设为默认分支</p>
 <p>这样的话,clone下来的,还有push上去的都只会在hexo分支中进行</p>
 <p>而最开始的master分支,就会只用来存储静态网页</p>
-<p><code>setting</code>–&gt;<code>branckes</code>–&gt;<code>hexo</code>–&gt;<code>update</code></p>
+<p><code>setting</code>—&gt;<code>branckes</code>—&gt;<code>hexo</code>—&gt;<code>update</code></p>
 <p><img src="Snipaste_2020-04-04_15-40-38.png" alt="Snipaste_2020-04-04_15-40-38"></p>
 </li>
 </ol>
@@ -442,21 +442,14 @@
 </li>
 </ol>
 <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit –m <span class="string">"backup"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
-
 <p>然后去github康康,hexo分支应该就变成你文件夹中应该有的东西了</p>
 <p><img src="Snipaste_2020-04-04_15-57-48.png" alt="Snipaste_2020-04-04_15-57-48"></p>
 <p>而master分支没有变化</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>确保<code>hexo deploy</code>推送的是master分支，hexo目录下的_config.yml文件通常会配置deploy推送的目标地址，这个一般在最初使用hexo时，就会配置为master，不用改动：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/sherlockyb/sherlockyb.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>之后就可以在文件夹中快乐的使用了</p>
 <h3 id="生成网页"><a href="#生成网页" class="headerlink" title="生成网页"></a>生成网页</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">d</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="备份源码"><a href="#备份源码" class="headerlink" title="备份源码"></a>备份源码</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit -m <span class="string">"description"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
-
-
 
       
     </div>
@@ -1070,7 +1063,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.2k</span>
+    <span title="Site words total count">50.1k</span>
   
 </div>
 

