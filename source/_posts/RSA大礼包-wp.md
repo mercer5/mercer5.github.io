@@ -26,7 +26,7 @@ Common Modulus Attack
 
 **攻击原理**
 $$
-存在 (s,t) \quad s.t.\ e_1s+e_2t=gcd(e_1,e_2)=1 \\
+存在 (s,t) \quad s.t.\ e_1s+e_2t=gcd(e_1,e_2)=1 \\\\
 c_1^s \cdot c_2^t \equiv (m^{e_1})^s \cdot (m^{e_2})^t \equiv m^{e_1s+e_2t} \equiv m \pmod n
 $$
 
@@ -68,10 +68,10 @@ b'\x98vT2\x10\xab\xcd\xef\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0
 
 **攻击原理**
 $$
-最大公因数获取其中一个大素数: p = gcd(n1,n2) \\
-n除p获取另一个大素数: q_i = n_i \div p \quad (i=1 \ or \  2) \\
-phi_i(n) = (q_i-1)(p-1) \\
-d_i = inverse(e_i,n_i) \\
+最大公因数获取其中一个大素数: p = gcd(n1,n2) \\\\
+n除p获取另一个大素数: q_i = n_i \div p \quad (i=1 \ or \  2) \\\\
+phi_i(n) = (q_i-1)(p-1) \\\\
+d_i = inverse(e_i,n_i) \\\\
 m_i \equiv c_i^{d_i} \pmod n_i
 $$
 
@@ -90,25 +90,20 @@ Fermat's factorization method
 
 **前置**
 $$
-\because \forall 奇数n = ab = x^2-y^2 \\
-\therefore n = ab = (x+y)(x-y) \\
+\because \forall 奇数n = ab = x^2-y^2 \\\\
+\therefore n = ab = (x+y)(x-y) \\\\
 $$
 
 $$
-\left\{
-             \begin{array}{l}
-             a = x+y \\
-             b = x-y \\
-             \end{array}
-\right.
-\\
+             a = x+y \\\\
+             b = x-y 
 $$
 
 **算法**
 $$
-y^2 = x^2 - n >= 0 \\
-\therefore x^2>=n ,即: x>=\sqrt n\\
-\therefore 可以从x = \sqrt n 开始,计算x^2-n为完全平方数即可求出x,y \\
+y^2 = x^2 - n >= 0 \\\\
+\therefore x^2>=n ,即: x>=\sqrt n\\\\
+\therefore 可以从x = \sqrt n 开始,计算x^2-n为完全平方数即可求出x,y \\\\
 然后求得a,b
 $$
 
@@ -155,16 +150,16 @@ B-Smooth数: 如果一个整数的所有素因子都不大于B,则称该整数�
 - 设大整数的一个因子是p, p-1需要是B-Smooth的
 
 $$
-设p-1是B-Smooth的,即p-1 = p_1 p_2\cdots p_n \ (\forall 1 \leq i \leq n,p_i \leq B) \\
-若p_i两两不同,则p_1 p_2\cdots p_n \mid B! \\
-即 (p-1) \mid B! , B! = k(p-1) \\
-\therefore a^{B!} \equiv a^{k(p-1)} \equiv 1 \pmod p \\
+设p-1是B-Smooth的,即p-1 = p_1 p_2\cdots p_n \ (\forall 1 \leq i \leq n,p_i \leq B) \\\\
+若p_i两两不同,则p_1 p_2\cdots p_n \mid B! \\\\
+即 (p-1) \mid B! , B! = k(p-1) \\\\
+\therefore a^{B!} \equiv a^{k(p-1)} \equiv 1 \pmod p \\\\
 $$
 
 分解过程
 $$
-假设n = pq\\
-计算gcd = gcd(a^{B!}-1,n) \\
+假设n = pq\\\\
+计算gcd = gcd(a^{B!}-1,n) \\\\
 如果 0 < gcd < n, 则gcd为n的一个因子
 $$
 
@@ -239,21 +234,21 @@ e很小
 
 大于e个人,使用相同的e对同一m进行加密,否则无法正确解密
 $$
-\because m<n \\
-\therefore m^e<N = n_1\cdot n_2 \cdots \cdot n_e \\
+\because m<n \\\\
+\therefore m^e<N = n_1\cdot n_2 \cdots \cdot n_e \\\\
 $$
 
 **攻击原理**
 
 选取了相同的加密指数 e（这里取 e=3），对相同的明文 m 进行了加密并进行了消息的传递，那么有：
 $$
-c_1 \equiv m^3 \pmod {n_1} \\
-c_2 \equiv m^3 \pmod {n_2} \\
-c_3 \equiv m^3 \pmod {n_3} \\
+c_1 \equiv m^3 \pmod {n_1} \\\\
+c_2 \equiv m^3 \pmod {n_2} \\\\
+c_3 \equiv m^3 \pmod {n_3} \\\\
 $$
 对上述等式运用中国剩余定理，在 e=3 时，可以得到：
 $$
-N = n_1\cdot n_2\cdot n_3 \\
+N = n_1\cdot n_2\cdot n_3 \\\\
 c_x \equiv m^3 \pmod N
 $$
 通过对 $c_x$ 进行三次开方就可以求得明文
@@ -277,8 +272,8 @@ Known High Bits Message Attack
 
 **原理**
 $$
-\because c \equiv (m_0+x)^e \pmod n \\
-set \  f(x) = (m+x)^e - c \\
+\because c \equiv (m_0+x)^e \pmod n \\\\
+set \  f(x) = (m+x)^e - c \\\\
 \therefore 存在 x , \  s.t. f(x) = k\cdot n (k = 0,1,2,...)
 $$
 求解出x后,依据coppersmith定理,可以求出剩下的所有明文部分
