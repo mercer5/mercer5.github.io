@@ -88,12 +88,12 @@
 
 
 
-<meta name="description" content="ssh连接虚拟机 ssh相关操作  配置文件 vim中输入&#x2F;可以进行搜索  1vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config 将 PasswordAuthentication 改为 yes  将上图的no,改成yes  为防止使用root登录时发生permission denied的情况  将PermitRootLogin no(服务端 SSH 服务配置了禁止root用户登录策略)的注释取消掉,">
+<meta name="description" content="ssh连接虚拟机 ssh相关操作  配置文件 vim中输入&#x2F;可以进行搜索  1vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  将 PasswordAuthentication 改为 yes  将上图的no,改成yes  为防止使用root登录时发生permission denied的情况  将PermitRootLogin no(服务端 SSH 服务配置了禁止root用户登录策略)的注释取消掉">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh连接虚拟机">
 <meta property="og:url" content="https://mercer5.github.io/2021/10/31/ssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="ssh连接虚拟机 ssh相关操作  配置文件 vim中输入&#x2F;可以进行搜索  1vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config 将 PasswordAuthentication 改为 yes  将上图的no,改成yes  为防止使用root登录时发生permission denied的情况  将PermitRootLogin no(服务端 SSH 服务配置了禁止root用户登录策略)的注释取消掉,">
+<meta property="og:description" content="ssh连接虚拟机 ssh相关操作  配置文件 vim中输入&#x2F;可以进行搜索  1vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  将 PasswordAuthentication 改为 yes  将上图的no,改成yes  为防止使用root登录时发生permission denied的情况  将PermitRootLogin no(服务端 SSH 服务配置了禁止root用户登录策略)的注释取消掉">
 <meta property="og:image" content="https://mercer5.github.io/2021/10/31/ssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20201004094841713.png">
 <meta property="og:image" content="https://mercer5.github.io/2021/10/31/ssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA/Snipaste_2020-10-04_09-35-19.png">
 <meta property="og:image" content="https://mercer5.github.io/2021/10/31/ssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20201004095046401.png">
@@ -417,6 +417,7 @@
 <p>vim中输入<code>/</code>可以进行搜索</p>
 </blockquote>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>ssh<span class="regexp">/sshd_config</span></span><br></pre></td></tr></table></figure>
+
 <p>将 <code>PasswordAuthentication</code> 改为 <code>yes</code></p>
 <p><img src="image-20201004094841713.png" alt="image-20201004094841713"></p>
 <p>将上图的<strong>no</strong>,改成<strong>yes</strong></p>
@@ -428,8 +429,12 @@
 <p>按需要重启ssh服务,一般不用</p>
 </blockquote>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure>
+
 <p>对于centos,重启命令有点不一样</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">systemctl</span> <span class="selector-tag">restart</span> <span class="selector-tag">sshd</span><span class="selector-class">.service</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><ol>
 <li><p><code>ifconfig</code></p>
 <p>查看虚拟机IP地址</p>
@@ -446,6 +451,9 @@
 </ol>
 <h2 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h2><p>cmd中输入</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="symbol">root@</span><span class="number">192.168</span><span class="number">.217</span><span class="number">.131</span> (-p xxxx)</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="scp远程复制"><a href="#scp远程复制" class="headerlink" title="scp远程复制"></a>scp远程复制</h2><p>如果ssh能连接上，就可以用这个命令进行复制</p>
 <ul>
 <li><p>复制文件</p>
@@ -453,6 +461,7 @@
 </li>
 <li><p>复制文件夹</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root<span class="variable">@192</span>.<span class="number">168.184</span>.<span class="number">129</span><span class="symbol">:/home/admin888/fund/</span> <span class="symbol">C:</span>\Users\mercer\Desktop</span><br></pre></td></tr></table></figure>
+
 <p><img src="image-20211021222907451.png" alt="image-20211021222907451"></p>
 </li>
 </ul>
@@ -470,6 +479,7 @@
 <p>这里改成<code>192.168.137.0</code> </p>
 <p>这时就ping的通了</p>
 <h3 id="端口错误"><a href="#端口错误" class="headerlink" title="端口错误"></a>端口错误</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">netstat -atulnp</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="image-20211015092032969.png" alt="image-20211015092032969"></p>
 <p>发现ssh服务开在7001端口!!!!</p>
 <p>长安杯20的时候被这个端口坑的不轻</p>
@@ -1092,7 +1102,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.6k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 

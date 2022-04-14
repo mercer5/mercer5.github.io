@@ -501,7 +501,8 @@
 <li>先配置更新源<br>vim /etc/apt/sources.list</li>
 </ol>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#阿里云</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line">#清华大学</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.tuna.tsinghua.edu.<span class="keyword">cn</span>/kali kali-rolling main contrib non-free</span><br><span class="line"><span class="keyword">deb</span>-src http<span class="variable">s:</span>//mirrors.tuna.tsinghua.edu.<span class="keyword">cn</span>/kali kali-rolling main contrib non-free</span><br><span class="line"> </span><br><span class="line">#浙江大学</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.zju.edu.<span class="keyword">cn</span>/kali kali-rolling main contrib non-free</span><br><span class="line"><span class="keyword">deb</span>-src http://mirrors.zju.edu.<span class="keyword">cn</span>/kali kali-rolling main contrib non-free</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="2">
 <li><p>更新</p>
 <p>apt-get update</p>
 </li>
@@ -509,6 +510,7 @@
 </li>
 </ol>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt clean    <span class="comment">//清除缓存索引</span></span><br><span class="line">apt update    <span class="comment">//更新索引文件</span></span><br><span class="line">apt upgrade    <span class="comment">//更新实际的软件包文件</span></span><br><span class="line">apt <span class="built_in">dist</span>-upgrade    <span class="comment">//根据依赖关系更新</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>出现：更新时无法安全地用该源进行更新，所以默认禁用该源</p>
 </li>
@@ -1128,7 +1130,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.6k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 

@@ -88,12 +88,12 @@
 
 
 
-<meta name="description" content="Nginx笔记 Nginx 配置文件解析  找到配置文件1locate nginx.conf 一般在&#x2F;etc&#x2F;nginx&#x2F;nginx.conf 重要的配置指令 user: worker进程的用户和组  error_log: 错误写入文件  pid: 记录主进程ID的文件   include文件增强配置文件的可读性(就是用来引入其他配置文件的?) location部分root 也可以设置在serve">
+<meta name="description" content="Nginx笔记 Nginx 配置文件解析  找到配置文件1locate nginx.conf  一般在&#x2F;etc&#x2F;nginx&#x2F;nginx.conf 重要的配置指令 user: worker进程的用户和组  error_log: 错误写入文件  pid: 记录主进程ID的文件   include文件增强配置文件的可读性(就是用来引入其他配置文件的?) location部分root 也可以设置在serv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx笔记">
 <meta property="og:url" content="https://mercer5.github.io/2021/10/31/Nginx%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="mercer">
-<meta property="og:description" content="Nginx笔记 Nginx 配置文件解析  找到配置文件1locate nginx.conf 一般在&#x2F;etc&#x2F;nginx&#x2F;nginx.conf 重要的配置指令 user: worker进程的用户和组  error_log: 错误写入文件  pid: 记录主进程ID的文件   include文件增强配置文件的可读性(就是用来引入其他配置文件的?) location部分root 也可以设置在serve">
+<meta property="og:description" content="Nginx笔记 Nginx 配置文件解析  找到配置文件1locate nginx.conf  一般在&#x2F;etc&#x2F;nginx&#x2F;nginx.conf 重要的配置指令 user: worker进程的用户和组  error_log: 错误写入文件  pid: 记录主进程ID的文件   include文件增强配置文件的可读性(就是用来引入其他配置文件的?) location部分root 也可以设置在serv">
 <meta property="article:published_time" content="2021-10-31T04:46:03.000Z">
 <meta property="article:modified_time" content="2021-10-31T11:16:30.600Z">
 <meta property="article:author" content="mercer">
@@ -400,6 +400,7 @@
 <p><a href="https://www.runoob.com/note/34639" target="_blank" rel="noopener">Nginx 配置文件解析</a></p>
 </blockquote>
 <h2 id="找到配置文件"><a href="#找到配置文件" class="headerlink" title="找到配置文件"></a>找到配置文件</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">locate</span> <span class="selector-tag">nginx</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure>
+
 <p>一般在<code>/etc/nginx/nginx.conf</code></p>
 <h2 id="重要的配置指令"><a href="#重要的配置指令" class="headerlink" title="重要的配置指令"></a>重要的配置指令</h2><ul>
 <li><p>user: worker进程的用户和组</p>
@@ -415,19 +416,25 @@
 </blockquote>
 <p>设置网站的根目录,eg</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root <span class="regexp">/var/</span>www<span class="regexp">/html/</span></span><br></pre></td></tr></table></figure>
+
 <p>假如域名是</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">example</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure>
+
 <p>那么访问<code>example.com/folder/pic.jpg</code>即使访问<code>/var/www/html/folder/pic.jpg</code></p>
 <h3 id="index"><a href="#index" class="headerlink" title="index"></a>index</h3><blockquote>
 <p>也可以设置在server部分</p>
 </blockquote>
 <p>设置主页名字,一般为</p>
 <figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">index</span>, <span class="keyword">index</span>.html, <span class="keyword">index</span>.htm, <span class="keyword">index</span>.php</span><br></pre></td></tr></table></figure>
+
 <p>作用: 访问<code>example.com/folder/</code>时,自动依次检索folder目录下的这些文件,一旦找到就返回给用户</p>
 <h2 id="server部分"><a href="#server部分" class="headerlink" title="server部分"></a>server部分</h2><p>虚拟服务器部分</p>
 <h3 id="listen"><a href="#listen" class="headerlink" title="listen"></a>listen</h3><p>用于指定监听端口,也就是对外开放的端口</p>
 <p>定义了一个IP地址/端口组合或是UNIX域套接字路径</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listen<span class="built_in"> address </span>[:port]</span><br><span class="line">listen port</span><br><span class="line">listen unix:path</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="server-name"><a href="#server-name" class="headerlink" title="server_name"></a>server_name</h3><p>指明虚拟主机的名字,用于选择不同的虚拟主机</p>
 <p>默认值为: “”,对于没有设置Host头字段的请求,会匹配到该server处理</p>
 <p>这个字段的设置也可以是IP地址,用于IP直接访问时</p>
@@ -436,6 +443,7 @@
 <ol>
 <li><p>反向代理就会用到这个，例如在反代 deluge-web 时：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> /deluge/</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">proxy_pass</span> http://localhost:8112/;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Deluge-Base <span class="string">"/deluge/"</span>;</span><br><span class="line">  <span class="attribute">add_header</span> X-Frame-Options SAMEORIGIN;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>我们先看这段配置的第一行： <code>location /deluge/</code> 。这表示它会匹配对 example.com/deluge/ 以及子目录的所有请求。</p>
 <p>里面的第一句 <code>proxy_pass http://localhost:8112/;</code> 是反代的核心。它表示，把匹配到的所有请求都转发到 <code>http://localhost:8112/</code> 上，从而使外界访问 example.com/deluge 的时候能看到在服务器上访问 <code>http://localhost:8112/</code> 所看到的页面。</p>
 <p>而后面的两句就和 HTTP 请求头有关系了。前面讲到 HTTP 请求头会包含用户请求的域名，事实上它除此之外还有用户的 IP、请求方法、Cookie、加密算法等信息。直接的 <code>proxy_pass</code> 会使后端服务器接收到的请求头与用户实际发出的请求头不同，所以可能需要加上一些额外的语句。</p>
@@ -452,9 +460,14 @@
 </blockquote>
 <p>用于记录访问日志。一般写法：</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">access_log /<span class="built_in">var</span>/<span class="keyword">log</span>/thelogfile.<span class="keyword">log</span>;</span><br></pre></td></tr></table></figure>
+
 <p>或者关闭之：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">access_log</span> <span class="literal">off</span>;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="错误日志文件格式"><a href="#错误日志文件格式" class="headerlink" title="错误日志文件格式"></a>错误日志文件格式</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;timestamp&gt;</span> [log-level] <span class="params">&lt;master/worker pid&gt;</span><span class="meta">#0: message</span></span><br></pre></td></tr></table></figure>
+
 <p>error级别的message包括</p>
 <ul>
 <li>连接数</li>
@@ -470,27 +483,34 @@
 <h3 id="静态HTTP服务器"><a href="#静态HTTP服务器" class="headerlink" title="静态HTTP服务器"></a>静态HTTP服务器</h3><p>首先，Nginx是一个HTTP服务器，可以将服务器上的静态文件（如HTML、图片）通过HTTP协议展现给客户端。</p>
 <p>配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen80; # 端口号</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html; # 静态文件路径</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="反向代理服务器"><a href="#反向代理服务器" class="headerlink" title="反向代理服务器"></a>反向代理服务器</h3><p>客户端本来可以直接通过HTTP协议访问某网站应用服务器，网站管理员可以在中间加上一个Nginx，客户端请求Nginx，Nginx请求应用服务器，然后将结果返回给客户端，此时Nginx就是反向代理服务器。</p>
 <p>配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen80;</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;192.168.20.1:8080; # 应用服务器HTTP地址</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>既然服务器可以直接HTTP访问，为什么要在中间加上一个反向代理，不是多此一举吗？反向代理有什么作用？继续往下看，下面的负载均衡、虚拟主机等，都基于反向代理实现，当然反向代理的功能也不仅仅是这些。</p>
 <h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>当网站访问量非常大，网站站长开心赚钱的同时，也摊上事儿了。因为网站越来越慢，一台服务器已经不够用了。于是将同一个应用部署在多台服务器上，将大量用户的请求分配给多台机器处理。同时带来的好处是，其中一台服务器万一挂了，只要还有其他服务器正常运行，就不会影响用户使用。</p>
 <p>Nginx可以通过反向代理来实现负载均衡。</p>
 <p>配置: (将请求轮询分配到应用服务器，也就是一个客户端的多次请求，有可能会由多台不同的服务器处理。)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">upstream myapp &#123;</span><br><span class="line">server192.168.20.1:8080; # 应用服务器1</span><br><span class="line">server192.168.20.2:8080; # 应用服务器2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen80;</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;myapp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>配置：(通过ip-hash的方式，根据客户端ip地址的hash值将请求分配给固定的某一个服务器处理。)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">upstream myapp &#123;</span><br><span class="line"> ip_hash; # 根据客户端IP地址Hash值将请求分配给固定的一个服务器处理</span><br><span class="line"> server192.168.20.1:8080;</span><br><span class="line"> server192.168.20.2:8080;</span><br><span class="line"> &#125;</span><br><span class="line"> server &#123;</span><br><span class="line"> listen80;</span><br><span class="line"> location &#x2F; &#123;</span><br><span class="line"> proxy_pass http:&#x2F;&#x2F;myapp;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>配置：(服务器的硬件配置可能有好有差，想把大部分请求分配给好的服务器，把少量请求分配给差的服务器，可以通过weight来控制。)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">upstream myapp &#123;</span><br><span class="line">server192.168.20.1:8080 weight&#x3D;3; # 该服务器处理3&#x2F;4请求</span><br><span class="line">server192.168.20.2:8080; # weight默认为1，该服务器处理1&#x2F;4请求</span><br><span class="line"> &#125;</span><br><span class="line">server &#123;</span><br><span class="line">listen80;</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;myapp;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h3><p>有的网站访问量大，需要负载均衡。然而并不是所有网站都如此出色，有的网站，由于访问量太小，需要节省成本，将多个网站部署在同一台服务器上。</p>
 <p>例如将<code>http://www.aaa.com</code>和<a href="http://www.bbb.com两个网站部署在同一台服务器上，两个域名解析到同一个IP地址，但是用户通过两个域名却可以打开两个完全不同的网站，互相不影响，就像访问两个服务器一样，所以叫两个虚拟主机。" target="_blank" rel="noopener">http://www.bbb.com两个网站部署在同一台服务器上，两个域名解析到同一个IP地址，但是用户通过两个域名却可以打开两个完全不同的网站，互相不影响，就像访问两个服务器一样，所以叫两个虚拟主机。</a></p>
 <p>配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"> listen 80 default_server;</span><br><span class="line"> server_name _;</span><br><span class="line"> return 444; # 过滤其他域名的请求，返回444状态码</span><br><span class="line"> &#125;</span><br><span class="line"> server &#123;</span><br><span class="line"> listen 80;</span><br><span class="line"> server_name www.aaa.com; # www.aaa.com域名</span><br><span class="line"> location &#x2F; &#123;</span><br><span class="line"> proxy_pass http:&#x2F;&#x2F;localhost:8080; # 对应端口号8080</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name www.bbb.com; # www.bbb.com域名</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;localhost:8081; # 对应端口号8081</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>在服务器8080和8081分别开了一个应用，客户端通过不同的域名访问，根据server_name可以反向代理到对应的应用服务器。</p>
 <p>虚拟主机的原理是通过HTTP请求头中的Host是否匹配server_name来实现的</p>
 <p>另外，server_name配置还可以过滤有人恶意将某些域名指向你的主机服务器。</p>
 <h3 id="FastCGI"><a href="#FastCGI" class="headerlink" title="FastCGI"></a>FastCGI</h3><p>Nginx本身不支持PHP等语言，但是它可以通过FastCGI来将请求扔给某些语言或框架处理（例如PHP、Python、Perl）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME &#x2F;PHP文件路径$fastcgi_script_name; # PHP文件路径</span><br><span class="line">fastcgi_pass127.0.0.1:9000; # PHP-FPM地址和端口号</span><br><span class="line"># 另一种方式：fastcgi_pass unix:&#x2F;var&#x2F;run&#x2F;php5-fpm.sock;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>配置中将.php结尾的请求通过FashCGI交给PHP-FPM处理，PHP-FPM是PHP的一个FastCGI管理器。</p>
 
       
@@ -1105,7 +1125,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.6k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 
