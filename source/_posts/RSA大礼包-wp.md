@@ -6,6 +6,7 @@ tag:
 - 密码学
 - 算法
 - 安全
+- XDU
 mathjax: true
 ---
 
