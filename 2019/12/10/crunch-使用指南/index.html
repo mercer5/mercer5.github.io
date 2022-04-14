@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="安全," />
+  <meta name="keywords" content="secure," />
 
 
 
@@ -95,9 +95,9 @@
 <meta property="og:site_name" content="mercer">
 <meta property="og:description" content="crunch 使用指南参数详解min  设定最小字符串长度max  设定最大字符串长度 options-b   指定文件输出的大小，避免字典文件过大-c   指定文件输出的行数，即包含密码的个数-d   限制相同元素出现的次数-e   定义停止字符，即到该字符串就停止生成-f   调用库文件（&#x2F;etc&#x2F;share&#x2F;crunch&#x2F;charset.lst）-i   改变输出格式，即aaa,aab -&amp;">
 <meta property="article:published_time" content="2019-12-10T11:35:51.000Z">
-<meta property="article:modified_time" content="2020-08-24T15:30:09.746Z">
+<meta property="article:modified_time" content="2022-04-14T07:30:02.467Z">
 <meta property="article:author" content="mercer">
-<meta property="article:tag" content="安全">
+<meta property="article:tag" content="secure">
 <meta name="twitter:card" content="summary">
 
 
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-24T23:30:09+08:00">
-                2020-08-24
+              <time title="更新于" itemprop="dateModified" datetime="2022-04-14T15:30:02+08:00">
+                2022-04-14
               </time>
             
           </span>
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" itemprop="url" rel="index">
-                    <span itemprop="name">虚拟机</span>
+                  <a href="/categories/vm/" itemprop="url" rel="index">
+                    <span itemprop="name">vm</span>
                   </a>
                 </span>
 
@@ -403,7 +403,8 @@
 <li>生成一个字典库 :5位的6个小写字母的随机排列组合,可以生成67 MB这么大的字典文件</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">5</span> <span class="number">5</span> -b <span class="number">20</span>mib -o START</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="2">
 <li><p>生成一个字典文件，用自己指定的字符:默认为26个小写字母为元素的所有组合</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">1</span> <span class="number">3</span> abc</span><br></pre></td></tr></table></figure>
 </li>
@@ -411,51 +412,64 @@
 </li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">7</span> <span class="number">7</span> -t <span class="symbol">p@</span>ss,%^ -l <span class="symbol">a@</span>aaaaa</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="4">
 <li>-o参数也可使用&gt;&gt;来简化</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">4</span> <span class="number">4</span> -d <span class="symbol">2@</span> -t @@@% &gt;&gt; test.txt</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="5">
 <li>生成10位密码，并指定格式</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">10</span> <span class="number">10</span> -t @@@^%%%%^^ -d <span class="symbol">2@</span> -d <span class="number">3</span>% -b <span class="number">20</span>mb -o START</span><br></pre></td></tr></table></figure>
+
 <p>格式为三个小写字母+一个符号+四个数字+两个符号，限制每个密码至少2种字母和至少3种数字，文件大小为20MB。“-d 2@”表示字母重复最多2次。</p>
 <p>-d 数字符号，限制出现相同元素的个数(至少出现元素个数)，“-d 2@”限制小写字母输出像aab和aac，aaa不会产生，因为这是连续3个字母，格式是数字+符号，数字是连续字母出现的次数，符号是限制字符串的字符，例如@,%^(“@”代表小写字母，“,”代表大写字符，“%”代表数字，“^”代表特殊字符)</p>
 <p>-t @,%^，指定模式，@,%^分别代表意义如下：</p>
 <p>@ 插入小写字母<br>, 插入大写字母<br>% 插入数字<br>^ 插入特殊符号</p>
 <h2 id="密码库"><a href="#密码库" class="headerlink" title="密码库"></a>密码库</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>share<span class="regexp">/crunch/</span>charset.lst</span><br></pre></td></tr></table></figure>
+
 <p>numeric   表示0123456789<br>Lalpha   表示26位小写字母<br>Ualpha   表示26位大写字母</p>
 <h3 id="使用案例-1"><a href="#使用案例-1" class="headerlink" title="使用案例"></a>使用案例</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">1</span> <span class="number">1</span> -f /usr/<span class="keyword">share</span>/crunch/charset.lst  mixalpha-<span class="type">numeric</span>-<span class="keyword">all</span>-space -o  <span class="keyword">START</span>  -c  <span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+
 <p> -c 数字 指定写入输出文件的行数，也即包含密码的个数，例如使用字符规则mixalpha-numeric-all-space，生成最小和最大字符串为1的且每一个文件保存60个字符串的密码字典</p>
 <p> -f /path/to/charset.lst charset-name，从charset.lst指定字符集，也即调用密码库文件，比如kali中的charset.lst 在/usr/share/crunch/charset.lst，则参数为“-f /usr/share/crunch/charset.lst”</p>
 <h2 id="比较有用的命令"><a href="#比较有用的命令" class="headerlink" title="比较有用的命令"></a>比较有用的命令</h2><ol>
 <li>生成pass01-pass99所有数字组合</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">6</span> <span class="number">6</span> -t pass%%  &gt;&gt;newpwd.txt</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="2">
 <li>生成六位小写字母密码，其中前四位为pass</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">6</span> <span class="number">6</span> -t <span class="symbol">pass@</span>@  &gt;&gt;newpwd.txt</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="3">
 <li>生成六位密码，其中前四位为pass，后二位为大写</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">6</span> <span class="number">6</span> -t pass,,  &gt;&gt;newpwd.txt</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="4">
 <li>生成六位密码，其中前四位为pass，后二位为特殊字符</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">6</span> <span class="number">6</span> -t pass^^  &gt;&gt;newpwd.txt</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="5">
 <li>制作8位数字字典</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">8</span> <span class="number">8</span> charset.lst numeric -o num8.dic</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="6">
 <li>制作6位数字字典</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">6</span> <span class="number">6</span>  <span class="number">0123456789</span> –o num6.dic</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="7">
 <li>制作139开头的手机密码字典</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crunch <span class="number">11</span> <span class="number">11</span>  +<span class="number">0123456789</span> -t <span class="number">139</span>%%%%%%%% -b <span class="number">20</span>mib -o START</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -520,7 +534,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+            <a href="/tags/secure/" rel="tag"># secure</a>
           
         </div>
       
@@ -637,7 +651,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -648,7 +662,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1069,7 +1083,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.7k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 

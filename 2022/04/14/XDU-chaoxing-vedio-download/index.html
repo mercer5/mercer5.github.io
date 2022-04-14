@@ -416,6 +416,7 @@
 <li><p>这是个get传参, 将payload复制出来</p>
 <p><img src="image-20220413110900303.png" alt="image-20220413110900303"></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"type"</span>:<span class="string">"2"</span>,</span><br><span class="line">	<span class="attr">"videoPath"</span>:</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="attr">"pptVideo"</span>:<span class="string">"..."</span>,</span><br><span class="line">         <span class="attr">"mobile"</span>:<span class="string">"..."</span>,</span><br><span class="line">         <span class="attr">"teacherTrack"</span>:<span class="string">"..."</span>,</span><br><span class="line">         <span class="attr">"studentFull"</span>:<span class="string">"..."</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>pptVideo: ppt视图(我们所看到的小的那个视频)</li>
 <li>mobile: 这个很神奇,会在teacherTrack和pptVideo之间来回跳转, 害挺智能的(我决定以后都下这个了)</li>
@@ -427,7 +428,8 @@
 <p><img src="image-20220414142405437.png" alt="image-20220414142405437"></p>
 </li>
 </ol>
-<h2 id="下载"><a href="#下载" class="headerlink" title="　下载"></a>　下载</h2><p>目录结构如下:</p>
+<p>##　下载</p>
+<p>目录结构如下:</p>
 <p><img src="image-20220414142428275.png" alt="image-20220414142428275"></p>
 <p>下面是 <code>vedio_download.py</code> 的代码, 根据需要修改 var下的变量</p>
 <ul>
@@ -436,6 +438,8 @@
 <li>threadNumber: 线程数</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,json,time,threading,os</span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> var</span></span><br><span class="line">saveName = <span class="string">"test"</span></span><br><span class="line">vedioType = <span class="string">"mobile"</span></span><br><span class="line">threadNumber = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># func</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUrlFromJson</span><span class="params">(vedioType)</span>:</span></span><br><span class="line">    f = open(<span class="string">'vedio.json'</span>,<span class="string">'r'</span>)</span><br><span class="line">    <span class="keyword">return</span> json.load(f).get(<span class="string">"videoPath"</span>).get(vedioType)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPageToFile</span><span class="params">(url)</span>:</span></span><br><span class="line">    tmpUrl = url[:url.rfind(<span class="string">'/'</span>)+<span class="number">1</span>]</span><br><span class="line">    lst_all = requests.get(url).text.split(<span class="string">'\n'</span>)</span><br><span class="line">    matchList = [i.strip(<span class="string">'\r'</span>) <span class="keyword">for</span> i <span class="keyword">in</span> lst_all <span class="keyword">if</span> i.find(<span class="string">'.ts'</span>)!=<span class="number">-1</span>]</span><br><span class="line">    lst = [tmpUrl+i+<span class="string">'\n'</span> <span class="keyword">for</span> i <span class="keyword">in</span> matchList]</span><br><span class="line">    f = open(<span class="string">'payload.m3u8'</span>,<span class="string">'w'</span>)</span><br><span class="line">    f.writelines(lst)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downloadTF</span><span class="params">(urls)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(urls)):</span><br><span class="line">        start = time.time()</span><br><span class="line">        ts_url = urls[i]</span><br><span class="line">        ts_name = ts_url.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'_'</span>)[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            r = requests.get(ts_url,stream=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">'error:&#123;&#125;'</span>.format(e.args))</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        </span><br><span class="line">        ts_path = <span class="string">"temp/&#123;:0&gt;4&#125;.ts"</span>.format(ts_name)</span><br><span class="line">        <span class="keyword">with</span> open(ts_path,<span class="string">"wb+"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> chunk <span class="keyword">in</span> r.iter_content(chunk_size=<span class="number">1024</span>):</span><br><span class="line">                <span class="keyword">if</span> chunk:</span><br><span class="line">                    f.write(chunk)</span><br><span class="line">        end = time.time()</span><br><span class="line">        print(<span class="string">'&#123;&#125;_&#123;&#125;_time cost: &#123;&#125;'</span>.format(threading.current_thread().name,ts_path,end-start))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createThread</span><span class="params">(threadNumber,urls)</span>:</span></span><br><span class="line">    cnt = len(urls)//threadNumber</span><br><span class="line">    threads = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(threadNumber):</span><br><span class="line">        tmp_urls = urls[i*cnt:i*cnt+cnt]</span><br><span class="line">        t = threading.Thread(target=downloadTF,args=[tmp_urls,],name=str(i))</span><br><span class="line">        t.start()</span><br><span class="line">        threads.append(t)</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threads:</span><br><span class="line">        t.join()</span><br><span class="line"></span><br><span class="line"><span class="comment"># main</span></span><br><span class="line">url_m3u8 = getUrlFromJson(vedioType)</span><br><span class="line">getPageToFile(url_m3u8)</span><br><span class="line">cwd = os.getcwd()</span><br><span class="line">os.makedirs(os.path.join(cwd,<span class="string">'temp'</span>),exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'payload.m3u8'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        urls = f.readlines()</span><br><span class="line"></span><br><span class="line">createThread(threadNumber,urls)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'download finished ...'</span>)</span><br><span class="line">print(<span class="string">'start to merge all the file ...'</span>)</span><br><span class="line"></span><br><span class="line">cmd = <span class="string">r"copy /b .\temp\*.ts .\&#123;&#125;.ts"</span>.format(saveName)</span><br><span class="line">os.system(cmd)</span><br><span class="line"></span><br><span class="line"><span class="comment"># clear</span></span><br><span class="line">cmd = <span class="string">'rmdir /s/q temp'</span></span><br><span class="line">os.system(cmd)</span><br><span class="line">cmd = <span class="string">'del /q payload.m3u8'</span></span><br><span class="line">os.system(cmd)</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
@@ -515,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/01/26/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95%E5%8F%8A%E6%89%A9%E5%B1%95%E7%AE%97%E6%B3%95/" rel="next" title="欧几里德算法及扩展算法">
-                <i class="fa fa-chevron-left"></i> 欧几里德算法及扩展算法
+              <a href="/2022/01/07/RSA%E5%A4%A7%E7%A4%BC%E5%8C%85-wp/" rel="next" title="RSA大礼包_wp">
+                <i class="fa fa-chevron-left"></i> RSA大礼包_wp
               </a>
             
           </div>
@@ -615,7 +619,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -626,7 +630,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1013,7 +1017,7 @@ if(canvas.getContext){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">2.</span> <span class="nav-text">　下载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
             
 
           </div>
@@ -1047,7 +1051,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.7k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 
