@@ -410,30 +410,23 @@
 <li>设置git全局邮箱和用户名</li>
 </ul>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"yourgithubname"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"yourgithubemail"</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>设置ssh key</li>
 </ul>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"youremail"</span></span><br><span class="line"><span class="meta">#生成后填到github</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>安装hexo</li>
 </ul>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
-
 <p>但是已经不需要初始化了，</p>
 <p>直接在任意文件夹下，</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">git</span>@………………</span><br></pre></td></tr></table></figure>
-
 <p>然后进入克隆到的文件夹：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cd</span> <span class="selector-tag">xxx</span><span class="selector-class">.github</span><span class="selector-class">.io</span></span><br><span class="line"><span class="selector-tag">npm</span> <span class="selector-tag">install</span> <span class="selector-tag">hexo-deployer-git</span> <span class="selector-tag">--save</span></span><br></pre></td></tr></table></figure>
-
 <p>生成，部署：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">d</span></span><br></pre></td></tr></table></figure>
-
 <p>然后就可以开始写你的新博客了</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> newpage</span><br></pre></td></tr></table></figure>
-
 <p>不要忘了，每次写完最好都把源文件上传一下</p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit –m <span class="string">"xxxx"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
       
@@ -1048,7 +1041,7 @@ if(canvas.getContext){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.7k</span>
+    <span title="Site words total count">50.6k</span>
   
 </div>
 
