@@ -4,8 +4,8 @@ date: 2019-12-10 19:35:51
 categories: python
 tags:
 - python
-- 安全
-- 虚拟机
+- secure
+- vm
 
 ---
 

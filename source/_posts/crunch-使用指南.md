@@ -1,9 +1,9 @@
 ---
 title: crunch 使用指南
 date: 2019-12-10 19:35:51
-categories: 虚拟机
+categories: vm
 tags:
-- 安全
+- secure
 
 ---
 

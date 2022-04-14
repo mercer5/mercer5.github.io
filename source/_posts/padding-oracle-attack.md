@@ -1,11 +1,11 @@
 ---
 title: padding oracle attack
 date: 2022-01-06 16:11:13
-categories: 密码学
+categories: crypto
 tag:
-- 密码学
+- crypto
 - 算法
-- 安全
+- secure
 mathjax: true
 ---
 

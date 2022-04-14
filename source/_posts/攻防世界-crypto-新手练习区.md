@@ -3,7 +3,7 @@ title: "攻防世界-crypto-新手练习区"
 date: 2020-04-04 23:08:21
 categories: ctf
 tags: 
-- 密码
+- crypto
 - ctf
 ---
 # 攻防世界-crypto-新手练习区

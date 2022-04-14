@@ -1,11 +1,11 @@
 ---
 title: RSA大礼包_wp
 date: 2022-01-07 12:47:50
-categories: 密码学
+categories: crypto
 tag:
-- 密码学
+- crypto
 - 算法
-- 安全
+- secure
 - XDU
 mathjax: true
 ---

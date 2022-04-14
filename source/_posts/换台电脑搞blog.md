@@ -5,8 +5,6 @@ categories: blog
 tags: blog
 ---
 
-# 换台电脑搞blog
-
 > 很好,之前的预言中了,电脑重装后,啥都没了
 >
 > 从现在开始重新搭建blog所需的环境之类的东西

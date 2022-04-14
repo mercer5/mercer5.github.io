@@ -1,9 +1,11 @@
 ---
 title: "dvwa-sql-显注-low"
 date: 2020-04-15 17:38:31
-categories: sql
+categories: secure
 tags: 
+- secure
 - sql
+- ctf
 ---
 
 # dvwa-sql-显注-low

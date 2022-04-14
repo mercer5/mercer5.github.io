@@ -4,10 +4,8 @@ date: 2020-08-25 08:37:15
 categories: ctf
 tags: 
 - ctf
-- 安全
+- secure
 ---
-
-# xctf-web-新手练习区
 
 ## view_source
 

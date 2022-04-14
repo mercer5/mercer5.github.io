@@ -4,10 +4,9 @@ date: 2020-08-25 08:37:43
 categories: ctf
 tags: 
 - ctf
-- 安全
+- secure
 ---
 
-# xctf-crypto-新手练习区
 
 ## 1. base64
 
