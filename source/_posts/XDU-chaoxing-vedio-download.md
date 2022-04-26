@@ -47,7 +47,7 @@ tags:
 
 
 
-##　下载
+## 下载
 
 目录结构如下:
 
@@ -74,7 +74,7 @@ def getUrlFromJson(vedioType):
     f = open('vedio.json','r')
     return json.load(f).get("videoPath").get(vedioType)
 
-def getPageToFile(url):
+def parseURL(url):
     tmpUrl = url[:url.rfind('/')+1]
     lst_all = requests.get(url).text.split('\n')
     matchList = [i.strip('\r') for i in lst_all if i.find('.ts')!=-1]
@@ -114,7 +114,7 @@ def createThread(threadNumber,urls):
 
 # main
 url_m3u8 = getUrlFromJson(vedioType)
-getPageToFile(url_m3u8)
+parseURL(url_m3u8)
 cwd = os.getcwd()
 os.makedirs(os.path.join(cwd,'temp'),exist_ok=True)
 with open('payload.m3u8','r') as f:
